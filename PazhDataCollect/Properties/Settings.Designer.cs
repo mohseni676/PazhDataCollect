@@ -106,5 +106,77 @@ namespace PazhDataCollect.Properties {
                 this["ShopID"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string LocalSQL {
+            get {
+                return ((string)(this["LocalSQL"]));
+            }
+            set {
+                this["LocalSQL"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string RemoteSQL {
+            get {
+                return ((string)(this["RemoteSQL"]));
+            }
+            set {
+                this["RemoteSQL"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string DateField {
+            get {
+                return ((string)(this["DateField"]));
+            }
+            set {
+                this["DateField"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int DaysBefore {
+            get {
+                return ((int)(this["DaysBefore"]));
+            }
+            set {
+                this["DaysBefore"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ShamsiDate {
+            get {
+                return ((bool)(this["ShamsiDate"]));
+            }
+            set {
+                this["ShamsiDate"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Digitz8 {
+            get {
+                return ((bool)(this["Digitz8"]));
+            }
+            set {
+                this["Digitz8"] = value;
+            }
+        }
     }
 }

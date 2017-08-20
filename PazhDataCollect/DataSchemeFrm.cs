@@ -29,6 +29,14 @@ namespace PazhDataCollect
             LocalCN.ConnectionString = Properties.Settings.Default.Connection2;
             cbRemote.Items.AddRange(UT.FN_GetDBTableList(RemoteCN).ToArray());
             cbLocal.Items.AddRange(UT.FN_GetDBTableList(LocalCN).ToArray());
+            txtLocalSQL.Text = Properties.Settings.Default.LocalSQL;
+            txtRemoteSQL.Text = Properties.Settings.Default.RemoteSQL;
+            comboBox1.Text = Properties.Settings.Default.DateField;
+            if (Properties.Settings.Default.ShamsiDate == false)
+                chbDate.Checked = true;
+            if (Properties.Settings.Default.Digitz8 == true)
+                chbFormatDate.Checked = true;
+            maskedTextBox1.Text = Properties.Settings.Default.DaysBefore.ToString();
         }
 
         private void BtnRemote_Click(object sender, EventArgs e)
@@ -108,46 +116,63 @@ namespace PazhDataCollect
 
         private void button1_Click(object sender, EventArgs e)
         {
-            PersianCalendar calendar = new PersianCalendar();
-            DateTime date = DateTime.Now.AddDays(Convert.ToDouble(maskedTextBox1.Text)*-1);
-            string txt="";
-            txt +="INSERT INTO [" + cbRemote.Text+"]";
-            txt += "(";
-            int i=0;
-            foreach(string item in lbRemoteAdded.Items)
+            if (lbLocalAdded.Items.Count != lbRemoteAdded.Items.Count)
+                MessageBox.Show("تعداد فیلدهای انتخابی در جدول محلی و جدول راه دور باید یکسان باشد");
+            else
             {
-                
-                if (i < lbRemoteAdded.Items.Count-1)
-                    txt += item + ",";
-                else
-                    txt += item+") ";
+                string txt = "";
+                txt += "SELECT ";
+                //int i = lbRemote.Items.Count;
+                for (int i = 0; i < lbRemoteAdded.Items.Count; i++)
+                {
+                    if(i< lbRemoteAdded.Items.Count-1)
+                    txt += lbLocalAdded.Items[i] + " AS '" + lbRemoteAdded.Items[i] + "' , ";
+                    else
+                    txt += lbLocalAdded.Items[i] + " AS '" + lbRemoteAdded.Items[i] + "' From ";
 
-                i++;
+
+                }
+                txt += cbLocal.Text;
+                txtLocalSQL.Text = txt;
+
+                txt = "";
+                txt += "SELECT ";
+                //int i = lbRemote.Items.Count;
+                for (int i = 0; i < lbRemoteAdded.Items.Count; i++)
+                {
+                    if (i < lbRemoteAdded.Items.Count - 1)
+                        txt += lbRemoteAdded.Items[i] +" , ";
+                    else
+                        txt += lbRemoteAdded.Items[i] + " From ";
+
+
+                }
+                txt += cbRemote.Text;
+                txtRemoteSQL.Text = txt;
+
+
             }
-            txt += "SELECT (";
-            int j = 0;
-            foreach (string item in lbLocalAdded.Items)
-            {
-
-                if (j < lbLocalAdded.Items.Count - 1)
-                    txt += item + ",";
-                else
-                    txt += item + ") FROM [";
-
-                j++;
-            }
-            txt += cbLocal.Text + "] WHERE ";
-           
-            txt += cbSelectedDateField.Text + "< '" + calendar.GetYear(date)+"/"+calendar.GetMonth(date).ToString().PadLeft(2,'0')+"/"+calendar.GetDayOfMonth(date).ToString().PadLeft(2, '0') + "'";
-            txtResualt.Text=txt;
         }
 
-        private void cbSelectedDateField_MouseClick(object sender, MouseEventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            cbSelectedDateField.Items.Clear();
-            foreach (string item in lbLocalAdded.Items)
+            Properties.Settings.Default.LocalSQL = txtLocalSQL.Text;
+            Properties.Settings.Default.RemoteSQL = txtRemoteSQL.Text;
+            Properties.Settings.Default.DateField = comboBox1.Text;
+            if (chbDate.Checked)
+                Properties.Settings.Default.ShamsiDate = false;
+            if (chbFormatDate.Checked)
+                Properties.Settings.Default.Digitz8 = true;
+            Properties.Settings.Default.DaysBefore =Convert.ToInt32( maskedTextBox1.Text);
+            Properties.Settings.Default.Save();
+            MessageBox.Show("تنظیمات ذخیره شد.");
+        }
+
+        private void comboBox1_Click(object sender, EventArgs e)
+        {
+            foreach(string item in lbRemoteAdded.Items)
             {
-                cbSelectedDateField.Items.Add(item);
+                comboBox1.Items.Add(item);
             }
         }
     }
