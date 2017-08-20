@@ -42,6 +42,7 @@
             this.txtResualt = new System.Windows.Forms.TextBox();
             this.lbRemoteAdded = new System.Windows.Forms.ListBox();
             this.lbLocalAdded = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.gbRemote.SuspendLayout();
             this.gbLocal.SuspendLayout();
             this.SuspendLayout();
@@ -159,18 +160,18 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(799, 29);
+            this.label1.Location = new System.Drawing.Point(781, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(158, 16);
+            this.label1.Size = new System.Drawing.Size(185, 16);
             this.label1.TabIndex = 3;
-            this.label1.Text = "پیش نمایش نگاشت فیلدها";
+            this.label1.Text = "پیش نمایش نگاشت فیلدها SQL";
             // 
             // txtResualt
             // 
-            this.txtResualt.Location = new System.Drawing.Point(692, 49);
+            this.txtResualt.Location = new System.Drawing.Point(680, 49);
             this.txtResualt.Multiline = true;
             this.txtResualt.Name = "txtResualt";
-            this.txtResualt.Size = new System.Drawing.Size(356, 459);
+            this.txtResualt.Size = new System.Drawing.Size(368, 481);
             this.txtResualt.TabIndex = 4;
             this.txtResualt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -182,6 +183,8 @@
             this.lbRemoteAdded.Name = "lbRemoteAdded";
             this.lbRemoteAdded.Size = new System.Drawing.Size(295, 196);
             this.lbRemoteAdded.TabIndex = 6;
+            this.lbRemoteAdded.SelectedIndexChanged += new System.EventHandler(this.lbRemoteAdded_SelectedIndexChanged);
+            this.lbRemoteAdded.DoubleClick += new System.EventHandler(this.lbRemoteAdded_DoubleClick);
             // 
             // lbLocalAdded
             // 
@@ -191,12 +194,24 @@
             this.lbLocalAdded.Name = "lbLocalAdded";
             this.lbLocalAdded.Size = new System.Drawing.Size(295, 196);
             this.lbLocalAdded.TabIndex = 10;
+            this.lbLocalAdded.DoubleClick += new System.EventHandler(this.lbLocalAdded_DoubleClick);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(564, 533);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(222, 34);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "<تبدیل به دستور SQL ";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // DataSchemeFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1060, 558);
+            this.ClientSize = new System.Drawing.Size(1060, 568);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.txtResualt);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.gbLocal);
@@ -233,5 +248,6 @@
         private System.Windows.Forms.TextBox txtResualt;
         private System.Windows.Forms.ListBox lbRemoteAdded;
         private System.Windows.Forms.ListBox lbLocalAdded;
+        private System.Windows.Forms.Button button1;
     }
 }

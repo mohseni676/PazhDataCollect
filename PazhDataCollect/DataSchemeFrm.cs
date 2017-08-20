@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 namespace PazhDataCollect
 {
     public partial class DataSchemeFrm : Form
@@ -71,7 +72,7 @@ namespace PazhDataCollect
 
         private void lbRemote_DoubleClick(object sender, EventArgs e)
         {
-            txtResualt.Text += lbRemote.SelectedItem.ToString() + " = ";
+          //  txtResualt.Text += lbRemote.SelectedItem.ToString() + " = ";
             lbRemoteAdded.Items.Add(lbRemote.SelectedItem);
             lbRemote.Items.Remove(lbRemote.SelectedItem);
             
@@ -80,11 +81,60 @@ namespace PazhDataCollect
 
         private void lbLocal_DoubleClick(object sender, EventArgs e)
         {
-            txtResualt.Text += lbLocal.SelectedItem.ToString() + " , ";
+           // txtResualt.Text += lbLocal.SelectedItem.ToString() + " , ";
             lbLocalAdded.Items.Add(lbLocal.SelectedItem);
             lbLocal.Items.Remove(lbLocal.SelectedItem);
         }
 
-      
+        private void lbRemoteAdded_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbRemoteAdded_DoubleClick(object sender, EventArgs e)
+        {
+            lbRemote.Items.Add(lbRemoteAdded.SelectedItem);
+            lbRemoteAdded.Items.Remove(lbRemoteAdded.SelectedItem);
+
+        }
+
+        private void lbLocalAdded_DoubleClick(object sender, EventArgs e)
+        {
+            lbLocal.Items.Add(lbLocalAdded.SelectedItem);
+            lbLocalAdded.Items.Remove(lbLocalAdded.SelectedItem);
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string txt="";
+            txt +="INSERT INTO [" + cbRemote.Text+"]";
+            txt += "(";
+            int i=0;
+            foreach(string item in lbRemoteAdded.Items)
+            {
+                
+                if (i < lbRemoteAdded.Items.Count-1)
+                    txt += item + ",";
+                else
+                    txt += item+") ";
+
+                i++;
+            }
+            txt += "SELECT (";
+            int j = 0;
+            foreach (string item in lbLocalAdded.Items)
+            {
+
+                if (j < lbLocalAdded.Items.Count - 1)
+                    txt += item + ",";
+                else
+                    txt += item + ") FROM [";
+
+                j++;
+            }
+            txt += cbLocal.Text + "]";
+            txtResualt.Text=txt;
+        }
     }
 }
