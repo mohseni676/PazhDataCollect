@@ -44,5 +44,43 @@ namespace PazhDataCollect
                 MessageBox.Show("لطفا یک جدول را انتخاب نمایید.");
             }
         }
+
+        private void btnLocal_Click(object sender, EventArgs e)
+        {
+            LocalCN.ConnectionString = Properties.Settings.Default.Connection2;
+            if (cbLocal.Text != "" && LocalCN.ConnectionString != "")
+            {
+                lbLocal.Items.Clear();
+                lbLocal.Items.AddRange(UT.FN_GetTbColumnList(LocalCN, cbLocal.Text).ToArray());
+            }
+            else
+            {
+                MessageBox.Show("لطفا یک جدول را انتخاب نمایید.");
+            }
+        }
+
+        private void lbRemote_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void lbRemote_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbRemote_DoubleClick(object sender, EventArgs e)
+        {
+            txtResualt.Text += lbRemote.SelectedItem.ToString() + " = ";
+            
+            
+        }
+
+        private void lbLocal_DoubleClick(object sender, EventArgs e)
+        {
+            txtResualt.Text += lbLocal.SelectedItem.ToString() + " , ";
+        }
+
+      
     }
 }

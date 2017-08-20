@@ -39,7 +39,7 @@
             this.btnLocal = new System.Windows.Forms.Button();
             this.cbLocal = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.lbResualt = new System.Windows.Forms.ListBox();
+            this.txtResualt = new System.Windows.Forms.TextBox();
             this.gbRemote.SuspendLayout();
             this.gbLocal.SuspendLayout();
             this.SuspendLayout();
@@ -67,6 +67,9 @@
             this.lbRemote.Name = "lbRemote";
             this.lbRemote.Size = new System.Drawing.Size(295, 388);
             this.lbRemote.TabIndex = 5;
+            this.lbRemote.Click += new System.EventHandler(this.lbRemote_Click);
+            this.lbRemote.SelectedIndexChanged += new System.EventHandler(this.lbRemote_SelectedIndexChanged);
+            this.lbRemote.DoubleClick += new System.EventHandler(this.lbRemote_DoubleClick);
             // 
             // label2
             // 
@@ -119,6 +122,7 @@
             this.lbLocal.Name = "lbLocal";
             this.lbLocal.Size = new System.Drawing.Size(295, 388);
             this.lbLocal.TabIndex = 9;
+            this.lbLocal.DoubleClick += new System.EventHandler(this.lbLocal_DoubleClick);
             // 
             // label3
             // 
@@ -137,6 +141,7 @@
             this.btnLocal.TabIndex = 7;
             this.btnLocal.Text = "دریافت لیست فیلدها";
             this.btnLocal.UseVisualStyleBackColor = true;
+            this.btnLocal.Click += new System.EventHandler(this.btnLocal_Click);
             // 
             // cbLocal
             // 
@@ -156,21 +161,21 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "پیش نمایش نگاشت فیلدها";
             // 
-            // lbResualt
+            // txtResualt
             // 
-            this.lbResualt.FormattingEnabled = true;
-            this.lbResualt.ItemHeight = 16;
-            this.lbResualt.Location = new System.Drawing.Point(680, 49);
-            this.lbResualt.Name = "lbResualt";
-            this.lbResualt.Size = new System.Drawing.Size(368, 484);
-            this.lbResualt.TabIndex = 4;
+            this.txtResualt.Location = new System.Drawing.Point(692, 49);
+            this.txtResualt.Multiline = true;
+            this.txtResualt.Name = "txtResualt";
+            this.txtResualt.Size = new System.Drawing.Size(356, 459);
+            this.txtResualt.TabIndex = 4;
+            this.txtResualt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // DataSchemeFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1060, 558);
-            this.Controls.Add(this.lbResualt);
+            this.Controls.Add(this.txtResualt);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.gbLocal);
             this.Controls.Add(this.gbRemote);
@@ -203,6 +208,6 @@
         private System.Windows.Forms.Button btnLocal;
         private System.Windows.Forms.ComboBox cbLocal;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox lbResualt;
+        private System.Windows.Forms.TextBox txtResualt;
     }
 }
