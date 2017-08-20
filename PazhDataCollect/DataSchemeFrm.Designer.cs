@@ -40,12 +40,15 @@
             this.cbLocal = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtResualt = new System.Windows.Forms.TextBox();
+            this.lbRemoteAdded = new System.Windows.Forms.ListBox();
+            this.lbLocalAdded = new System.Windows.Forms.ListBox();
             this.gbRemote.SuspendLayout();
             this.gbLocal.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbRemote
             // 
+            this.gbRemote.Controls.Add(this.lbRemoteAdded);
             this.gbRemote.Controls.Add(this.lbRemote);
             this.gbRemote.Controls.Add(this.label2);
             this.gbRemote.Controls.Add(this.BtnRemote);
@@ -65,7 +68,7 @@
             this.lbRemote.ItemHeight = 16;
             this.lbRemote.Location = new System.Drawing.Point(17, 103);
             this.lbRemote.Name = "lbRemote";
-            this.lbRemote.Size = new System.Drawing.Size(295, 388);
+            this.lbRemote.Size = new System.Drawing.Size(295, 196);
             this.lbRemote.TabIndex = 5;
             this.lbRemote.Click += new System.EventHandler(this.lbRemote_Click);
             this.lbRemote.SelectedIndexChanged += new System.EventHandler(this.lbRemote_SelectedIndexChanged);
@@ -101,6 +104,7 @@
             // 
             // gbLocal
             // 
+            this.gbLocal.Controls.Add(this.lbLocalAdded);
             this.gbLocal.Controls.Add(this.lbLocal);
             this.gbLocal.Controls.Add(this.label3);
             this.gbLocal.Controls.Add(this.btnLocal);
@@ -120,7 +124,7 @@
             this.lbLocal.ItemHeight = 16;
             this.lbLocal.Location = new System.Drawing.Point(6, 103);
             this.lbLocal.Name = "lbLocal";
-            this.lbLocal.Size = new System.Drawing.Size(295, 388);
+            this.lbLocal.Size = new System.Drawing.Size(295, 196);
             this.lbLocal.TabIndex = 9;
             this.lbLocal.DoubleClick += new System.EventHandler(this.lbLocal_DoubleClick);
             // 
@@ -170,6 +174,24 @@
             this.txtResualt.TabIndex = 4;
             this.txtResualt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // lbRemoteAdded
+            // 
+            this.lbRemoteAdded.FormattingEnabled = true;
+            this.lbRemoteAdded.ItemHeight = 16;
+            this.lbRemoteAdded.Location = new System.Drawing.Point(17, 305);
+            this.lbRemoteAdded.Name = "lbRemoteAdded";
+            this.lbRemoteAdded.Size = new System.Drawing.Size(295, 196);
+            this.lbRemoteAdded.TabIndex = 6;
+            // 
+            // lbLocalAdded
+            // 
+            this.lbLocalAdded.FormattingEnabled = true;
+            this.lbLocalAdded.ItemHeight = 16;
+            this.lbLocalAdded.Location = new System.Drawing.Point(6, 305);
+            this.lbLocalAdded.Name = "lbLocalAdded";
+            this.lbLocalAdded.Size = new System.Drawing.Size(295, 196);
+            this.lbLocalAdded.TabIndex = 10;
+            // 
             // DataSchemeFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -209,5 +231,7 @@
         private System.Windows.Forms.ComboBox cbLocal;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtResualt;
+        private System.Windows.Forms.ListBox lbRemoteAdded;
+        private System.Windows.Forms.ListBox lbLocalAdded;
     }
 }

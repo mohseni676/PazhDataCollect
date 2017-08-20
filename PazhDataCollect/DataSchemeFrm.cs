@@ -72,6 +72,8 @@ namespace PazhDataCollect
         private void lbRemote_DoubleClick(object sender, EventArgs e)
         {
             txtResualt.Text += lbRemote.SelectedItem.ToString() + " = ";
+            lbRemoteAdded.Items.Add(lbRemote.SelectedItem);
+            lbRemote.Items.Remove(lbRemote.SelectedItem);
             
             
         }
@@ -79,6 +81,8 @@ namespace PazhDataCollect
         private void lbLocal_DoubleClick(object sender, EventArgs e)
         {
             txtResualt.Text += lbLocal.SelectedItem.ToString() + " , ";
+            lbLocalAdded.Items.Add(lbLocal.SelectedItem);
+            lbLocal.Items.Remove(lbLocal.SelectedItem);
         }
 
       
