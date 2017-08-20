@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Globalization;
 namespace PazhDataCollect
 {
     public partial class DataSchemeFrm : Form
@@ -107,6 +108,8 @@ namespace PazhDataCollect
 
         private void button1_Click(object sender, EventArgs e)
         {
+            PersianCalendar calendar = new PersianCalendar();
+            DateTime date = DateTime.Now.AddDays(Convert.ToDouble(maskedTextBox1.Text)*-1);
             string txt="";
             txt +="INSERT INTO [" + cbRemote.Text+"]";
             txt += "(";
@@ -133,8 +136,19 @@ namespace PazhDataCollect
 
                 j++;
             }
-            txt += cbLocal.Text + "]";
+            txt += cbLocal.Text + "] WHERE ";
+           
+            txt += cbSelectedDateField.Text + "< '" + calendar.GetYear(date)+"/"+calendar.GetMonth(date).ToString().PadLeft(2,'0')+"/"+calendar.GetDayOfMonth(date).ToString().PadLeft(2, '0') + "'";
             txtResualt.Text=txt;
+        }
+
+        private void cbSelectedDateField_MouseClick(object sender, MouseEventArgs e)
+        {
+            cbSelectedDateField.Items.Clear();
+            foreach (string item in lbLocalAdded.Items)
+            {
+                cbSelectedDateField.Items.Add(item);
+            }
         }
     }
 }

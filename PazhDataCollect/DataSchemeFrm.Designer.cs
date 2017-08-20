@@ -43,6 +43,12 @@
             this.lbRemoteAdded = new System.Windows.Forms.ListBox();
             this.lbLocalAdded = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cbSelectedDateField = new System.Windows.Forms.ComboBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.gbRemote.SuspendLayout();
             this.gbLocal.SuspendLayout();
             this.SuspendLayout();
@@ -78,7 +84,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(249, 35);
+            this.label2.Location = new System.Drawing.Point(245, 35);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 16);
             this.label2.TabIndex = 2;
@@ -160,7 +166,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(781, 30);
+            this.label1.Location = new System.Drawing.Point(780, 174);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(185, 16);
             this.label1.TabIndex = 3;
@@ -168,10 +174,10 @@
             // 
             // txtResualt
             // 
-            this.txtResualt.Location = new System.Drawing.Point(680, 49);
+            this.txtResualt.Location = new System.Drawing.Point(680, 193);
             this.txtResualt.Multiline = true;
             this.txtResualt.Name = "txtResualt";
-            this.txtResualt.Size = new System.Drawing.Size(368, 481);
+            this.txtResualt.Size = new System.Drawing.Size(368, 111);
             this.txtResualt.TabIndex = 4;
             this.txtResualt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -198,7 +204,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(564, 533);
+            this.button1.Location = new System.Drawing.Point(752, 137);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(222, 34);
             this.button1.TabIndex = 7;
@@ -206,11 +212,77 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(951, 17);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(100, 16);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "تعداد روز برداشت";
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(881, 14);
+            this.maskedTextBox1.Mask = "000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(64, 23);
+            this.maskedTextBox1.TabIndex = 9;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(951, 52);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(60, 16);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "فیلد تاریخ";
+            // 
+            // cbSelectedDateField
+            // 
+            this.cbSelectedDateField.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.cbSelectedDateField.FormattingEnabled = true;
+            this.cbSelectedDateField.Location = new System.Drawing.Point(780, 49);
+            this.cbSelectedDateField.Name = "cbSelectedDateField";
+            this.cbSelectedDateField.Size = new System.Drawing.Size(165, 21);
+            this.cbSelectedDateField.TabIndex = 11;
+            this.cbSelectedDateField.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cbSelectedDateField_MouseClick);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(913, 80);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.checkBox1.Size = new System.Drawing.Size(95, 20);
+            this.checkBox1.TabIndex = 12;
+            this.checkBox1.Text = "تاریخ میلادی";
+            this.checkBox1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(913, 106);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.checkBox2.Size = new System.Drawing.Size(102, 20);
+            this.checkBox2.TabIndex = 13;
+            this.checkBox2.Text = "سال دو رقمی";
+            this.checkBox2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
             // DataSchemeFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1060, 568);
+            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.cbSelectedDateField);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtResualt);
             this.Controls.Add(this.label1);
@@ -249,5 +321,11 @@
         private System.Windows.Forms.ListBox lbRemoteAdded;
         private System.Windows.Forms.ListBox lbLocalAdded;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cbSelectedDateField;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBox2;
     }
 }
