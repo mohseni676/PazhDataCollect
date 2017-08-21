@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Net;
 using System.Net.Sockets;
 using System.Linq;
+using System.Globalization;
 
 
 
@@ -86,7 +87,7 @@ namespace PazhDataCollect
             List<string> TbList = new List<string>();
             using (CN)
             {
-                SqlCommand CMD = new SqlCommand("select * from sys.all_objects where type='U' and is_ms_shipped=0 ORDER BY name", CN);
+                SqlCommand CMD = new SqlCommand("select name from sys.tables union select name from sys.views", CN);
                 CN.Open();
                 SqlDataReader Reader = CMD.ExecuteReader();
                 if (Reader.HasRows)
@@ -130,6 +131,24 @@ namespace PazhDataCollect
                    throw (er);
                 }
             }
+        }
+        public string FN_FormatDate(DateTime date,bool IsShamsi,bool Is8DigitFormat)
+        {
+            string Cdate = "";
+            PersianCalendar CLD = new PersianCalendar();
+            
+            if (IsShamsi == false)
+            {
+                Cdate +=date.Year + "/" + date.Month.ToString().PadLeft(2,'0')+"/"+date.Day.ToString().PadLeft(2,'0');
+            }else
+            {
+                Cdate += CLD.GetYear(date) + "/" + CLD.GetMonth(date).ToString().PadLeft(2, '0') + "/" + CLD.GetDayOfMonth(date).ToString().PadLeft(2, '0');
+            }
+            if (Is8DigitFormat == true)
+            {
+                Cdate = Cdate.Remove(0, 2);
+            }
+            return Cdate;
         }
     }
 }

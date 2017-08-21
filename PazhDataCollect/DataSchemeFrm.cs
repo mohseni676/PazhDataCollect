@@ -25,8 +25,8 @@ namespace PazhDataCollect
 
         private void DataSchemeFrm_Load(object sender, EventArgs e)
         {
-            RemoteCN.ConnectionString = Properties.Settings.Default.Connection1;
-            LocalCN.ConnectionString = Properties.Settings.Default.Connection2;
+            RemoteCN.ConnectionString = Properties.Settings.Default.RemoteCN;
+            LocalCN.ConnectionString = Properties.Settings.Default.LocalCN;
             cbRemote.Items.AddRange(UT.FN_GetDBTableList(RemoteCN).ToArray());
             cbLocal.Items.AddRange(UT.FN_GetDBTableList(LocalCN).ToArray());
             txtLocalSQL.Text = Properties.Settings.Default.LocalSQL;
@@ -41,7 +41,7 @@ namespace PazhDataCollect
 
         private void BtnRemote_Click(object sender, EventArgs e)
         {
-            RemoteCN.ConnectionString = Properties.Settings.Default.Connection1;
+            RemoteCN.ConnectionString = Properties.Settings.Default.RemoteCN;
            
             //MessageBox.Show("select COLUMN_NAME,TABLE_NAME from INFORMATION_SCHEMA.COLUMNS where  TABLE_NAME=\"" + "TEST" + "\"");
             if (cbRemote.Text != "" && RemoteCN.ConnectionString !="")
@@ -57,7 +57,7 @@ namespace PazhDataCollect
 
         private void btnLocal_Click(object sender, EventArgs e)
         {
-            LocalCN.ConnectionString = Properties.Settings.Default.Connection2;
+            LocalCN.ConnectionString = Properties.Settings.Default.LocalCN;
             if (cbLocal.Text != "" && LocalCN.ConnectionString != "")
             {
                 lbLocal.Items.Clear();
@@ -164,6 +164,8 @@ namespace PazhDataCollect
             if (chbFormatDate.Checked)
                 Properties.Settings.Default.Digitz8 = true;
             Properties.Settings.Default.DaysBefore =Convert.ToInt32( maskedTextBox1.Text);
+            Properties.Settings.Default.ShopName = txtShopName.Text;
+            Properties.Settings.Default.ShopID = txtShopID.Text;
             Properties.Settings.Default.Save();
             MessageBox.Show("تنظیمات ذخیره شد.");
         }
@@ -179,7 +181,7 @@ namespace PazhDataCollect
         private void button3_Click(object sender, EventArgs e)
         {
             
-            LocalCN.ConnectionString = Properties.Settings.Default.Connection2;
+            LocalCN.ConnectionString = Properties.Settings.Default.LocalCN;
             using (LocalCN)
             {
                 using (SqlDataAdapter a = new SqlDataAdapter(

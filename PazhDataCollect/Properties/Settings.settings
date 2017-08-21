@@ -2,10 +2,10 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="PazhDataCollect.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="Connection1" Type="System.String" Scope="User">
+    <Setting Name="RemoteCN" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="Connection2" Type="System.String" Scope="User">
+    <Setting Name="LocalCN" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Enabled" Type="System.Boolean" Scope="User">
@@ -20,7 +20,7 @@
     <Setting Name="ShopName" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="ShopID" Type="System.Int32" Scope="User">
+    <Setting Name="ShopID" Type="System.String" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="LocalSQL" Type="System.String" Scope="User">

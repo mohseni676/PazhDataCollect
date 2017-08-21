@@ -66,6 +66,11 @@
             this.button9 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.button10 = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.dgRemote = new System.Windows.Forms.DataGridView();
+            this.dgLocal = new System.Windows.Forms.DataGridView();
+            this.button11 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -74,10 +79,15 @@
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgRemote)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgLocal)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panel6);
+            this.panel1.Controls.Add(this.button10);
             this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.groupBox2);
@@ -85,7 +95,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1031, 594);
+            this.panel1.Size = new System.Drawing.Size(1031, 635);
             this.panel1.TabIndex = 0;
             // 
             // button5
@@ -375,7 +385,7 @@
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Location = new System.Drawing.Point(3, 323);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1025, 100);
+            this.groupBox3.Size = new System.Drawing.Size(1025, 85);
             this.groupBox3.TabIndex = 19;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "تنظیمات مربوط به سرویس ویندوز برداشت اطلاعات";
@@ -441,6 +451,7 @@
             this.button9.TabIndex = 20;
             this.button9.Text = "ذخیره تنظیم";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // label10
             // 
@@ -461,11 +472,60 @@
             this.label11.Text = "----";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(7, 277);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(512, 39);
+            this.button10.TabIndex = 20;
+            this.button10.Text = "تست سیستم و بررسی نگاشت";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.button11);
+            this.panel6.Controls.Add(this.dgLocal);
+            this.panel6.Controls.Add(this.dgRemote);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel6.Enabled = false;
+            this.panel6.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            this.panel6.Location = new System.Drawing.Point(0, 414);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1031, 221);
+            this.panel6.TabIndex = 21;
+            // 
+            // dgRemote
+            // 
+            this.dgRemote.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgRemote.Location = new System.Drawing.Point(525, 4);
+            this.dgRemote.Name = "dgRemote";
+            this.dgRemote.Size = new System.Drawing.Size(500, 173);
+            this.dgRemote.TabIndex = 0;
+            // 
+            // dgLocal
+            // 
+            this.dgLocal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgLocal.Location = new System.Drawing.Point(7, 4);
+            this.dgLocal.Name = "dgLocal";
+            this.dgLocal.Size = new System.Drawing.Size(512, 173);
+            this.dgLocal.TabIndex = 1;
+            // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(428, 179);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(187, 39);
+            this.button11.TabIndex = 20;
+            this.button11.Text = "انتقال اطلاعات به سرور مادر";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
             // mainFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1031, 594);
+            this.ClientSize = new System.Drawing.Size(1031, 635);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -486,6 +546,9 @@
             this.panel5.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgRemote)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgLocal)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -530,6 +593,11 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.DataGridView dgLocal;
+        private System.Windows.Forms.DataGridView dgRemote;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button11;
     }
 }
 

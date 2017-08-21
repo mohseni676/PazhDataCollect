@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.Sql;
 namespace PazhDataCollect
 {
     public partial class mainFrm : Form
@@ -56,24 +57,25 @@ namespace PazhDataCollect
             cn.Password = txtDBPassword.Text;
             cn.InitialCatalog = cbDBList.Text.Trim();
             
-            Properties.Settings.Default.Connection1 = cn.ConnectionString.ToString();
+            Properties.Settings.Default.RemoteCN = cn.ConnectionString.ToString();
             Properties.Settings.Default.Save();
             MessageBox.Show("تنظیمات مربوط به سرور راه دور ذخیره شد.");
         }
 
         private void mainFrm_Load(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.Connection1 != "")
+            
+            if (Properties.Settings.Default.RemoteCN != "")
             {
-                RemoteCN.ConnectionString = Properties.Settings.Default.Connection1;
+                RemoteCN.ConnectionString = Properties.Settings.Default.RemoteCN;
                 txtRserver.Text = RemoteCN.DataSource.ToString();
                 txtDBUser.Text = RemoteCN.UserID.ToString();
                 txtDBPassword.Text = RemoteCN.Password.ToString();
                 cbDBList.Text = RemoteCN.InitialCatalog.ToString();
             }
-            if (Properties.Settings.Default.Connection2 != "")
+            if (Properties.Settings.Default.LocalCN != "")
             {
-                LocalCN.ConnectionString = Properties.Settings.Default.Connection2;
+                LocalCN.ConnectionString = Properties.Settings.Default.LocalCN;
                 txtLServer.Text = LocalCN.DataSource.ToString();
                 txtLDBUser.Text = LocalCN.UserID.ToString();
                 txtLPassword.Text = LocalCN.Password.ToString();
@@ -116,7 +118,7 @@ namespace PazhDataCollect
             cn.Password = txtLPassword.Text;
             cn.InitialCatalog = cbLDBname.Text.Trim();
 
-            Properties.Settings.Default.Connection2 = cn.ConnectionString.ToString();
+            Properties.Settings.Default.LocalCN = cn.ConnectionString.ToString();
             Properties.Settings.Default.Save();
             MessageBox.Show("تنظیمات مربوط به سرور فروشگاه ذخیره شد.");
         }
@@ -125,6 +127,84 @@ namespace PazhDataCollect
         {
             DataSchemeFrm Dform = new DataSchemeFrm();
             Dform.ShowDialog();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            panel6.Enabled = true;
+            using (SqlConnection LCN = new SqlConnection(Properties.Settings.Default.LocalCN))
+            {
+                LCN.Open();
+                int DaysBefore = Properties.Settings.Default.DaysBefore;
+                string ShopName = Properties.Settings.Default.ShopName;
+                string ShopID = Properties.Settings.Default.ShopID;
+                string DateField = Properties.Settings.Default.DateField;
+                string Cdate = UT.FN_FormatDate(DateTime.Now.AddDays(DaysBefore * -1), true, true);
+                using (SqlDataAdapter DT = new SqlDataAdapter(Properties.Settings.Default.LocalSQL + " Where " + DateField + ">'" + Cdate + "'", LCN))
+                {
+                    DataTable TB = new DataTable();
+                    DT.Fill(TB);
+                    dgLocal.DataSource = TB;
+                }
+            }
+            using (SqlConnection LCN = new SqlConnection(Properties.Settings.Default.RemoteCN))
+            {
+                LCN.Open();
+                using (SqlDataAdapter DT = new SqlDataAdapter(Properties.Settings.Default.RemoteSQL, LCN))
+                {
+                    DataTable TB = new DataTable();
+                    DT.Fill(TB);
+                    dgRemote.DataSource = TB;
+                }
+            }
+
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            DataSet ds = new DataSet();
+            DataTable TBLocal = new DataTable();
+            DataTable TBRemote = new DataTable();
+            
+            using (SqlConnection LCN = new SqlConnection(Properties.Settings.Default.LocalCN))
+            {
+                LCN.Open();
+                int DaysBefore = Properties.Settings.Default.DaysBefore;
+                string ShopName = Properties.Settings.Default.ShopName;
+                string ShopID = Properties.Settings.Default.ShopID;
+                string DateField = Properties.Settings.Default.DateField;
+                string Cdate = UT.FN_FormatDate(DateTime.Now.AddDays(DaysBefore * -1), true, true);
+                
+
+                using (SqlDataAdapter DT = new SqlDataAdapter(Properties.Settings.Default.LocalSQL + " Where " + DateField + ">'" + Cdate + "'", LCN))
+                {
+                    
+                    DT.Fill(ds);
+                   
+
+                }
+            }
+            using (SqlConnection LCN = new SqlConnection(Properties.Settings.Default.RemoteCN))
+            {
+                LCN.Open();
+                using (SqlDataAdapter DT = new SqlDataAdapter(Properties.Settings.Default.RemoteSQL, LCN))
+                {
+                    
+                    DT.Fill(TBRemote);
+                 
+                }
+            }
+            TBLocal = ds.Tables[0];
+            //var query =from u in TBLocal.AsEnumera;
+            BindingSource bc = new BindingSource();
+            bc.DataSource = TBLocal;
+            dgRemote.DataSource = bc;
+            
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show(UT.FN_FormatDate(DateTime.Now, false, true));
         }
     }
 

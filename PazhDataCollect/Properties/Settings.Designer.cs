@@ -26,24 +26,24 @@ namespace PazhDataCollect.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Connection1 {
+        public string RemoteCN {
             get {
-                return ((string)(this["Connection1"]));
+                return ((string)(this["RemoteCN"]));
             }
             set {
-                this["Connection1"] = value;
+                this["RemoteCN"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Connection2 {
+        public string LocalCN {
             get {
-                return ((string)(this["Connection2"]));
+                return ((string)(this["LocalCN"]));
             }
             set {
-                this["Connection2"] = value;
+                this["LocalCN"] = value;
             }
         }
         
@@ -98,9 +98,9 @@ namespace PazhDataCollect.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int ShopID {
+        public string ShopID {
             get {
-                return ((int)(this["ShopID"]));
+                return ((string)(this["ShopID"]));
             }
             set {
                 this["ShopID"] = value;
