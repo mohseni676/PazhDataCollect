@@ -175,5 +175,23 @@ namespace PazhDataCollect
                 comboBox1.Items.Add(item);
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            
+            LocalCN.ConnectionString = Properties.Settings.Default.Connection2;
+            using (LocalCN)
+            {
+                using (SqlDataAdapter a = new SqlDataAdapter(
+                                   "SELECT TOP 100 * FROM " + cbLocal.Text, LocalCN))
+                {
+                    
+                    DataTable t = new DataTable();
+                    a.Fill(t);
+                    
+                    dgSQLView.DataSource = t;
+                }
+            }
+        }
     }
 }

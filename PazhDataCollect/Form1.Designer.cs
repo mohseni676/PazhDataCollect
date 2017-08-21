@@ -29,20 +29,21 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.cbDBList = new System.Windows.Forms.ComboBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtDBUser = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDBPassword = new System.Windows.Forms.MaskedTextBox();
             this.txtRserver = new System.Windows.Forms.TextBox();
             this.lbl_RServer = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cbDBList = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.cbLDBname = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -55,18 +56,29 @@
             this.txtLPassword = new System.Windows.Forms.MaskedTextBox();
             this.txtLServer = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.groupBox1);
@@ -76,16 +88,15 @@
             this.panel1.Size = new System.Drawing.Size(1031, 594);
             this.panel1.TabIndex = 0;
             // 
-            // groupBox1
+            // button5
             // 
-            this.groupBox1.Controls.Add(this.panel4);
-            this.groupBox1.Controls.Add(this.panel5);
-            this.groupBox1.Location = new System.Drawing.Point(3, 138);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1025, 133);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "مشخصات سرور فروشگاه";
+            this.button5.Location = new System.Drawing.Point(525, 277);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(500, 39);
+            this.button5.TabIndex = 18;
+            this.button5.Text = "تنظیمات مربوط به بانک اطلاعاتی و تطبیق فیلدها";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // groupBox2
             // 
@@ -98,6 +109,46 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "مشخصات سرور راه دور";
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.cbDBList);
+            this.panel3.Controls.Add(this.button2);
+            this.panel3.Controls.Add(this.label6);
+            this.panel3.Enabled = false;
+            this.panel3.Location = new System.Drawing.Point(4, 22);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(512, 100);
+            this.panel3.TabIndex = 1;
+            // 
+            // cbDBList
+            // 
+            this.cbDBList.FormattingEnabled = true;
+            this.cbDBList.Location = new System.Drawing.Point(136, 23);
+            this.cbDBList.Name = "cbDBList";
+            this.cbDBList.Size = new System.Drawing.Size(195, 24);
+            this.cbDBList.TabIndex = 17;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(136, 52);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(183, 39);
+            this.button2.TabIndex = 16;
+            this.button2.Text = "ذخیره سازی اطلاعات";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(158, 4);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(154, 16);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "لیست بانک های اطلاعاتی";
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.AppWorkspace;
@@ -109,10 +160,20 @@
             this.panel2.Controls.Add(this.txtDBPassword);
             this.panel2.Controls.Add(this.txtRserver);
             this.panel2.Controls.Add(this.lbl_RServer);
-            this.panel2.Location = new System.Drawing.Point(518, 22);
+            this.panel2.Location = new System.Drawing.Point(522, 22);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(498, 100);
+            this.panel2.Size = new System.Drawing.Size(494, 100);
             this.panel2.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(152, 52);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(183, 39);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "تست ارتباط و ادامه>>";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label3
             // 
@@ -169,55 +230,16 @@
             this.lbl_RServer.TabIndex = 8;
             this.lbl_RServer.Text = "آدرس سرور";
             // 
-            // button1
+            // groupBox1
             // 
-            this.button1.Location = new System.Drawing.Point(152, 52);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(183, 39);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "تست ارتباط و ادامه>>";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.cbDBList);
-            this.panel3.Controls.Add(this.button2);
-            this.panel3.Controls.Add(this.label6);
-            this.panel3.Enabled = false;
-            this.panel3.Location = new System.Drawing.Point(0, 22);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(512, 100);
-            this.panel3.TabIndex = 1;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(136, 52);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(183, 39);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "ذخیره سازی اطلاعات";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(158, 4);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(154, 16);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "لیست بانک های اطلاعاتی";
-            // 
-            // cbDBList
-            // 
-            this.cbDBList.FormattingEnabled = true;
-            this.cbDBList.Location = new System.Drawing.Point(136, 23);
-            this.cbDBList.Name = "cbDBList";
-            this.cbDBList.Size = new System.Drawing.Size(195, 24);
-            this.cbDBList.TabIndex = 17;
+            this.groupBox1.Controls.Add(this.panel4);
+            this.groupBox1.Controls.Add(this.panel5);
+            this.groupBox1.Location = new System.Drawing.Point(3, 138);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1025, 133);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "مشخصات سرور فروشگاه";
             // 
             // panel4
             // 
@@ -340,15 +362,104 @@
             this.label7.TabIndex = 8;
             this.label7.Text = "آدرس سرور";
             // 
-            // button5
+            // groupBox3
             // 
-            this.button5.Location = new System.Drawing.Point(836, 277);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(183, 39);
-            this.button5.TabIndex = 18;
-            this.button5.Text = "تطبیق فیلدها";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.groupBox3.Controls.Add(this.label11);
+            this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Controls.Add(this.button9);
+            this.groupBox3.Controls.Add(this.button8);
+            this.groupBox3.Controls.Add(this.button7);
+            this.groupBox3.Controls.Add(this.button6);
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.maskedTextBox1);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Location = new System.Drawing.Point(3, 323);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(1025, 100);
+            this.groupBox3.TabIndex = 19;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "تنظیمات مربوط به سرویس ویندوز برداشت اطلاعات";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(905, 41);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(103, 16);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "فاصله برداشت ها";
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(853, 38);
+            this.maskedTextBox1.Mask = "000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(46, 23);
+            this.maskedTextBox1.TabIndex = 1;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(809, 41);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(38, 16);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "دقیقه";
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(568, 30);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(106, 39);
+            this.button6.TabIndex = 17;
+            this.button6.Text = "نصب سرویس";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(438, 30);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(124, 39);
+            this.button7.TabIndex = 18;
+            this.button7.Text = "راه اندازی سرویس";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(324, 30);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(108, 39);
+            this.button8.TabIndex = 19;
+            this.button8.Text = "توقف سرویس";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(697, 30);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(106, 39);
+            this.button9.TabIndex = 20;
+            this.button9.Text = "ذخیره تنظیم";
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(201, 41);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(99, 16);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "وضعیت سرویس:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(141, 41);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(28, 16);
+            this.label11.TabIndex = 22;
+            this.label11.Text = "----";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // mainFrm
             // 
@@ -363,16 +474,18 @@
             this.Text = "برنامه برداشت اطلاعات پاژ";
             this.Load += new System.EventHandler(this.mainFrm_Load);
             this.panel1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -407,6 +520,16 @@
         private System.Windows.Forms.TextBox txtLServer;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.Label label8;
     }
 }
 
