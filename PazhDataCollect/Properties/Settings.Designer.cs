@@ -26,24 +26,24 @@ namespace PazhDataCollect.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Connection1 {
+        public string RemoteCN {
             get {
-                return ((string)(this["Connection1"]));
+                return ((string)(this["RemoteCN"]));
             }
             set {
-                this["Connection1"] = value;
+                this["RemoteCN"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Connection2 {
+        public string LocalCN {
             get {
-                return ((string)(this["Connection2"]));
+                return ((string)(this["LocalCN"]));
             }
             set {
-                this["Connection2"] = value;
+                this["LocalCN"] = value;
             }
         }
         
@@ -176,6 +176,30 @@ namespace PazhDataCollect.Properties {
             }
             set {
                 this["Digitz8"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string LocalDB {
+            get {
+                return ((string)(this["LocalDB"]));
+            }
+            set {
+                this["LocalDB"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string RemoteDB {
+            get {
+                return ((string)(this["RemoteDB"]));
+            }
+            set {
+                this["RemoteDB"] = value;
             }
         }
     }

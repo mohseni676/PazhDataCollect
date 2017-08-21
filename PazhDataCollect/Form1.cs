@@ -56,24 +56,24 @@ namespace PazhDataCollect
             cn.Password = txtDBPassword.Text;
             cn.InitialCatalog = cbDBList.Text.Trim();
             
-            Properties.Settings.Default.Connection1 = cn.ConnectionString.ToString();
+            Properties.Settings.Default.RemoteCN = cn.ConnectionString.ToString();
             Properties.Settings.Default.Save();
             MessageBox.Show("تنظیمات مربوط به سرور راه دور ذخیره شد.");
         }
 
         private void mainFrm_Load(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.Connection1 != "")
+            if (Properties.Settings.Default.RemoteCN != "")
             {
-                RemoteCN.ConnectionString = Properties.Settings.Default.Connection1;
+                RemoteCN.ConnectionString = Properties.Settings.Default.RemoteCN;
                 txtRserver.Text = RemoteCN.DataSource.ToString();
                 txtDBUser.Text = RemoteCN.UserID.ToString();
                 txtDBPassword.Text = RemoteCN.Password.ToString();
                 cbDBList.Text = RemoteCN.InitialCatalog.ToString();
             }
-            if (Properties.Settings.Default.Connection2 != "")
+            if (Properties.Settings.Default.LocalCN != "")
             {
-                LocalCN.ConnectionString = Properties.Settings.Default.Connection2;
+                LocalCN.ConnectionString = Properties.Settings.Default.LocalCN;
                 txtLServer.Text = LocalCN.DataSource.ToString();
                 txtLDBUser.Text = LocalCN.UserID.ToString();
                 txtLPassword.Text = LocalCN.Password.ToString();
@@ -116,7 +116,7 @@ namespace PazhDataCollect
             cn.Password = txtLPassword.Text;
             cn.InitialCatalog = cbLDBname.Text.Trim();
 
-            Properties.Settings.Default.Connection2 = cn.ConnectionString.ToString();
+            Properties.Settings.Default.LocalCN = cn.ConnectionString.ToString();
             Properties.Settings.Default.Save();
             MessageBox.Show("تنظیمات مربوط به سرور فروشگاه ذخیره شد.");
         }

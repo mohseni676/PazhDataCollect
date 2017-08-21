@@ -25,23 +25,40 @@ namespace PazhDataCollect
 
         private void DataSchemeFrm_Load(object sender, EventArgs e)
         {
-            RemoteCN.ConnectionString = Properties.Settings.Default.Connection1;
-            LocalCN.ConnectionString = Properties.Settings.Default.Connection2;
+            RemoteCN.ConnectionString = Properties.Settings.Default.RemoteCN;
+            LocalCN.ConnectionString = Properties.Settings.Default.LocalCN;
             cbRemote.Items.AddRange(UT.FN_GetDBTableList(RemoteCN).ToArray());
             cbLocal.Items.AddRange(UT.FN_GetDBTableList(LocalCN).ToArray());
             txtLocalSQL.Text = Properties.Settings.Default.LocalSQL;
-            txtRemoteSQL.Text = Properties.Settings.Default.RemoteSQL;
+           // txtRemoteSQL.Text = Properties.Settings.Default.RemoteSQL;
             comboBox1.Text = Properties.Settings.Default.DateField;
-            if (Properties.Settings.Default.ShamsiDate == false)
-                chbDate.Checked = true;
+            txtLocalDB.Text = Properties.Settings.Default.LocalDB;
+            txtRemoteDB.Text = Properties.Settings.Default.RemoteDB;
+            if (Properties.Settings.Default.ShamsiDate == true)
+            {
+               // MessageBox.Show("1");
+                chbDate.CheckState = CheckState.Unchecked;
+            }
+            else
+            {
+               // MessageBox.Show("2");
+                chbDate.CheckState = CheckState.Checked;
+            }
             if (Properties.Settings.Default.Digitz8 == true)
-                chbFormatDate.Checked = true;
+            {
+                chbFormatDate.CheckState = CheckState.Checked;
+            }
+            else
+            {
+                chbFormatDate.CheckState = CheckState.Unchecked;
+            }
             maskedTextBox1.Text = Properties.Settings.Default.DaysBefore.ToString();
+            //chbDate.CheckState = CheckState.Unchecked;
         }
 
         private void BtnRemote_Click(object sender, EventArgs e)
         {
-            RemoteCN.ConnectionString = Properties.Settings.Default.Connection1;
+            RemoteCN.ConnectionString = Properties.Settings.Default.RemoteCN;
            
             //MessageBox.Show("select COLUMN_NAME,TABLE_NAME from INFORMATION_SCHEMA.COLUMNS where  TABLE_NAME=\"" + "TEST" + "\"");
             if (cbRemote.Text != "" && RemoteCN.ConnectionString !="")
@@ -57,7 +74,7 @@ namespace PazhDataCollect
 
         private void btnLocal_Click(object sender, EventArgs e)
         {
-            LocalCN.ConnectionString = Properties.Settings.Default.Connection2;
+            LocalCN.ConnectionString = Properties.Settings.Default.LocalCN;
             if (cbLocal.Text != "" && LocalCN.ConnectionString != "")
             {
                 lbLocal.Items.Clear();
@@ -128,14 +145,16 @@ namespace PazhDataCollect
                     if(i< lbRemoteAdded.Items.Count-1)
                     txt += lbLocalAdded.Items[i] + " AS '" + lbRemoteAdded.Items[i] + "' , ";
                     else
-                    txt += lbLocalAdded.Items[i] + " AS '" + lbRemoteAdded.Items[i] + "' From ";
+                    txt += lbLocalAdded.Items[i] + " AS '" + lbRemoteAdded.Items[i] + "' ";
 
 
                 }
-                txt += cbLocal.Text;
+                //txt += cbLocal.Text;
                 txtLocalSQL.Text = txt;
-
-                txt = "";
+                txtLocalDB.Text = cbLocal.Text;
+                txtRemoteDB.Text = cbRemote.Text;
+               
+              /*  txt = "";
                 txt += "SELECT ";
                 //int i = lbRemote.Items.Count;
                 for (int i = 0; i < lbRemoteAdded.Items.Count; i++)
@@ -148,7 +167,7 @@ namespace PazhDataCollect
 
                 }
                 txt += cbRemote.Text;
-                txtRemoteSQL.Text = txt;
+                txtRemoteSQL.Text = txt;*/
 
 
             }
@@ -157,12 +176,18 @@ namespace PazhDataCollect
         private void button2_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.LocalSQL = txtLocalSQL.Text;
-            Properties.Settings.Default.RemoteSQL = txtRemoteSQL.Text;
+            //Properties.Settings.Default.RemoteSQL = txtRemoteSQL.Text;
             Properties.Settings.Default.DateField = comboBox1.Text;
-            if (chbDate.Checked)
+            Properties.Settings.Default.LocalDB = txtLocalDB.Text;
+            Properties.Settings.Default.RemoteDB = txtRemoteDB.Text;
+            if (chbDate.CheckState==CheckState.Checked)
                 Properties.Settings.Default.ShamsiDate = false;
-            if (chbFormatDate.Checked)
+            else
+                Properties.Settings.Default.ShamsiDate = true;
+            if (chbFormatDate.CheckState == CheckState.Checked)
                 Properties.Settings.Default.Digitz8 = true;
+            else
+                Properties.Settings.Default.Digitz8 = false;
             Properties.Settings.Default.DaysBefore =Convert.ToInt32( maskedTextBox1.Text);
             Properties.Settings.Default.Save();
             MessageBox.Show("تنظیمات ذخیره شد.");
@@ -179,7 +204,7 @@ namespace PazhDataCollect
         private void button3_Click(object sender, EventArgs e)
         {
             
-            LocalCN.ConnectionString = Properties.Settings.Default.Connection2;
+            LocalCN.ConnectionString = Properties.Settings.Default.LocalCN;
             using (LocalCN)
             {
                 using (SqlDataAdapter a = new SqlDataAdapter(

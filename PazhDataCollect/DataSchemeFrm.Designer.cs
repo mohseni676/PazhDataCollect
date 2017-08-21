@@ -35,6 +35,7 @@
             this.BtnRemote = new System.Windows.Forms.Button();
             this.cbRemote = new System.Windows.Forms.ComboBox();
             this.gbLocal = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.lbLocalAdded = new System.Windows.Forms.ListBox();
             this.lbLocal = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,8 +44,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtLocalSQL = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.txtRemoteSQL = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -52,9 +51,12 @@
             this.chbFormatDate = new System.Windows.Forms.CheckBox();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgSQLView = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtLocalDB = new System.Windows.Forms.TextBox();
+            this.txtRemoteDB = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.gbRemote.SuspendLayout();
             this.gbLocal.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -149,6 +151,18 @@
             this.gbLocal.TabStop = false;
             this.gbLocal.Text = "سرور محلی(فرزند)";
             // 
+            // button3
+            // 
+            this.button3.BackgroundImage = global::PazhDataCollect.Properties.Resources.if_Sql_runner_70664;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3.Location = new System.Drawing.Point(7, 17);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(42, 38);
+            this.button3.TabIndex = 11;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // lbLocalAdded
             // 
             this.lbLocalAdded.FormattingEnabled = true;
@@ -217,7 +231,7 @@
             this.txtLocalSQL.Multiline = true;
             this.txtLocalSQL.Name = "txtLocalSQL";
             this.txtLocalSQL.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtLocalSQL.Size = new System.Drawing.Size(368, 111);
+            this.txtLocalSQL.Size = new System.Drawing.Size(368, 194);
             this.txtLocalSQL.TabIndex = 4;
             // 
             // button1
@@ -230,25 +244,6 @@
             this.button1.Text = "<تبدیل به دستور SQL ";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // txtRemoteSQL
-            // 
-            this.txtRemoteSQL.Location = new System.Drawing.Point(680, 266);
-            this.txtRemoteSQL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtRemoteSQL.Multiline = true;
-            this.txtRemoteSQL.Name = "txtRemoteSQL";
-            this.txtRemoteSQL.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtRemoteSQL.Size = new System.Drawing.Size(368, 111);
-            this.txtRemoteSQL.TabIndex = 9;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(771, 236);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(167, 16);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "SQL Query مربوط به نگاشت ";
             // 
             // button2
             // 
@@ -323,18 +318,6 @@
             this.label6.TabIndex = 16;
             this.label6.Text = "تعداد روز قبل جهت برداشت";
             // 
-            // button3
-            // 
-            this.button3.BackgroundImage = global::PazhDataCollect.Properties.Resources.if_Sql_runner_70664;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.Location = new System.Drawing.Point(7, 17);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(42, 38);
-            this.button3.TabIndex = 11;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.dgSQLView);
@@ -356,11 +339,46 @@
             this.dgSQLView.Size = new System.Drawing.Size(1036, 204);
             this.dgSQLView.TabIndex = 0;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(969, 352);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(79, 16);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "دیتابیس مبدا";
+            // 
+            // txtLocalDB
+            // 
+            this.txtLocalDB.Location = new System.Drawing.Point(802, 349);
+            this.txtLocalDB.Name = "txtLocalDB";
+            this.txtLocalDB.Size = new System.Drawing.Size(161, 23);
+            this.txtLocalDB.TabIndex = 18;
+            // 
+            // txtRemoteDB
+            // 
+            this.txtRemoteDB.Location = new System.Drawing.Point(802, 319);
+            this.txtRemoteDB.Name = "txtRemoteDB";
+            this.txtRemoteDB.Size = new System.Drawing.Size(161, 23);
+            this.txtRemoteDB.TabIndex = 20;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(969, 322);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(88, 16);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "دیتابیس مقصد";
+            // 
             // DataSchemeFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1060, 753);
+            this.ClientSize = new System.Drawing.Size(1060, 741);
+            this.Controls.Add(this.txtRemoteDB);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.txtLocalDB);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.maskedTextBox1);
@@ -369,7 +387,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.txtRemoteSQL);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtLocalSQL);
@@ -411,8 +428,6 @@
         private System.Windows.Forms.ListBox lbRemoteAdded;
         private System.Windows.Forms.ListBox lbLocalAdded;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox txtRemoteSQL;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label5;
@@ -423,5 +438,9 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dgSQLView;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtLocalDB;
+        private System.Windows.Forms.TextBox txtRemoteDB;
+        private System.Windows.Forms.Label label7;
     }
 }
