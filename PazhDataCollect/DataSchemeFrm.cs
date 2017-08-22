@@ -66,7 +66,9 @@ namespace PazhDataCollect
             if (cbRemote.Text != "" && RemoteCN.ConnectionString !="")
             {
                 lbRemote.Items.Clear();
-                lbRemote.Items.AddRange(UT.FN_GetTbColumnList(RemoteCN, cbRemote.Text).ToArray());
+                var list = UT.FN_GetTbColumnList(RemoteCN, cbRemote.Text).ToArray();
+                lbRemote.Items.AddRange(list);
+                radGridView1.DataSource = list;
             }
             else
             {

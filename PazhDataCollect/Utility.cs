@@ -104,9 +104,9 @@ namespace PazhDataCollect
             }
         }
 
-        public List<string> FN_GetTbColumnList(SqlConnection CN,String TbName)
+        public List<Tuple< string,string,int>> FN_GetTbColumnList(SqlConnection CN,String TbName)
         {
-            List<string> TbList = new List<string>();
+            List<Tuple<string, string,int>> TbList = new List<Tuple<string, string,int>>();
             using (CN)
             {
                 try
@@ -120,7 +120,7 @@ namespace PazhDataCollect
                         while (Reader.Read())
                         {
 
-                            TbList.Add(Reader.GetString(3));
+                            TbList.Add(new Tuple<string, string,int>( Reader.GetString(3), Reader.GetString(5),Reader.GetInt32(7)));
 
                         }
                     }

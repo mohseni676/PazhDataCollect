@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             this.gbRemote = new System.Windows.Forms.GroupBox();
             this.lbRemoteAdded = new System.Windows.Forms.ListBox();
             this.lbRemote = new System.Windows.Forms.ListBox();
@@ -61,10 +62,13 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtShopID = new System.Windows.Forms.TextBox();
             this.txtShopName = new System.Windows.Forms.TextBox();
+            this.radGridView1 = new Telerik.WinControls.UI.RadGridView();
             this.gbRemote.SuspendLayout();
             this.gbLocal.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgSQLView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radGridView1.MasterTemplate)).BeginInit();
             this.SuspendLayout();
             // 
             // gbRemote
@@ -410,11 +414,24 @@
             this.txtShopName.Size = new System.Drawing.Size(161, 23);
             this.txtShopName.TabIndex = 24;
             // 
+            // radGridView1
+            // 
+            this.radGridView1.Location = new System.Drawing.Point(1054, 51);
+            // 
+            // 
+            // 
+            this.radGridView1.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            this.radGridView1.Name = "radGridView1";
+            this.radGridView1.Size = new System.Drawing.Size(178, 150);
+            this.radGridView1.TabIndex = 25;
+            this.radGridView1.Text = "radGridView1";
+            // 
             // DataSchemeFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1060, 741);
+            this.ClientSize = new System.Drawing.Size(1237, 733);
+            this.Controls.Add(this.radGridView1);
             this.Controls.Add(this.txtShopName);
             this.Controls.Add(this.txtShopID);
             this.Controls.Add(this.label9);
@@ -449,6 +466,8 @@
             this.gbLocal.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgSQLView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radGridView1.MasterTemplate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -489,5 +508,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtShopID;
         private System.Windows.Forms.TextBox txtShopName;
+        private Telerik.WinControls.UI.RadGridView radGridView1;
     }
 }
