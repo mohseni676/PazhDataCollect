@@ -178,5 +178,29 @@ namespace PazhDataCollect.Properties {
                 this["Digitz8"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string LocalDB {
+            get {
+                return ((string)(this["LocalDB"]));
+            }
+            set {
+                this["LocalDB"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string RemoteDB {
+            get {
+                return ((string)(this["RemoteDB"]));
+            }
+            set {
+                this["RemoteDB"] = value;
+            }
+        }
     }
 }
