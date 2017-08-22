@@ -34,6 +34,8 @@ namespace PazhDataCollect
             comboBox1.Text = Properties.Settings.Default.DateField;
             txtLocalDB.Text = Properties.Settings.Default.LocalDB;
             txtRemoteDB.Text = Properties.Settings.Default.RemoteDB;
+            txtShopName.Text = Properties.Settings.Default.ShopName;
+            txtShopID.Text = Properties.Settings.Default.ShopID;
             if (Properties.Settings.Default.ShamsiDate == true)
             {
                // MessageBox.Show("1");
@@ -197,7 +199,7 @@ namespace PazhDataCollect
 
         private void comboBox1_Click(object sender, EventArgs e)
         {
-            foreach(string item in lbRemoteAdded.Items)
+            foreach(string item in lbLocalAdded.Items)
             {
                 comboBox1.Items.Add(item);
             }
@@ -219,6 +221,11 @@ namespace PazhDataCollect
                     dgSQLView.DataSource = t;
                 }
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

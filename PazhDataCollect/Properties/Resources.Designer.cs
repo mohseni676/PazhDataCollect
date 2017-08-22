@@ -63,9 +63,29 @@ namespace PazhDataCollect.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DST {
+            get {
+                object obj = ResourceManager.GetObject("DST", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap if_Sql_runner_70664 {
             get {
                 object obj = ResourceManager.GetObject("if_Sql-runner_70664", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SRC {
+            get {
+                object obj = ResourceManager.GetObject("SRC", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

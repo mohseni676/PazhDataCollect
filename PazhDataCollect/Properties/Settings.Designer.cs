@@ -206,12 +206,12 @@ namespace PazhDataCollect.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string ali {
+        public string FinalSQL {
             get {
-                return ((string)(this["ali"]));
+                return ((string)(this["FinalSQL"]));
             }
             set {
-                this["ali"] = value;
+                this["FinalSQL"] = value;
             }
         }
     }

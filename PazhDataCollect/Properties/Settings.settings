@@ -47,7 +47,7 @@
     <Setting Name="RemoteDB" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="ali" Type="System.String" Scope="User">
+    <Setting Name="FinalSQL" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

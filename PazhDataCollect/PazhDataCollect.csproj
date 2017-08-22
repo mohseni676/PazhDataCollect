@@ -114,5 +114,11 @@
   <ItemGroup>
     <None Include="Resources\if_Sql-runner_70664.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DST.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SRC.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

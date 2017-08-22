@@ -29,6 +29,23 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.txtSQL = new System.Windows.Forms.TextBox();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgLocal = new System.Windows.Forms.DataGridView();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -56,38 +73,29 @@
             this.txtLPassword = new System.Windows.Forms.MaskedTextBox();
             this.txtLServer = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.button10 = new System.Windows.Forms.Button();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.dgRemote = new System.Windows.Forms.DataGridView();
-            this.dgLocal = new System.Windows.Forms.DataGridView();
             this.button11 = new System.Windows.Forms.Button();
+            this.lblCount = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgLocal)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgRemote)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgLocal)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.panel6);
-            this.panel1.Controls.Add(this.button10);
             this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.groupBox2);
@@ -95,12 +103,182 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1031, 635);
+            this.panel1.Size = new System.Drawing.Size(1031, 793);
             this.panel1.TabIndex = 0;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.lblCount);
+            this.panel7.Controls.Add(this.button11);
+            this.panel7.Controls.Add(this.button10);
+            this.panel7.Controls.Add(this.txtSQL);
+            this.panel7.Location = new System.Drawing.Point(7, 402);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(1018, 132);
+            this.panel7.TabIndex = 22;
+            // 
+            // txtSQL
+            // 
+            this.txtSQL.BackColor = System.Drawing.Color.LightCyan;
+            this.txtSQL.Location = new System.Drawing.Point(4, 1);
+            this.txtSQL.Multiline = true;
+            this.txtSQL.Name = "txtSQL";
+            this.txtSQL.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtSQL.Size = new System.Drawing.Size(1011, 87);
+            this.txtSQL.TabIndex = 24;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.pictureBox2);
+            this.panel6.Controls.Add(this.pictureBox1);
+            this.panel6.Controls.Add(this.dataGridView1);
+            this.panel6.Controls.Add(this.dgLocal);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel6.Enabled = false;
+            this.panel6.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            this.panel6.Location = new System.Drawing.Point(0, 540);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1031, 253);
+            this.panel6.TabIndex = 21;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::PazhDataCollect.Properties.Resources.DST;
+            this.pictureBox2.Location = new System.Drawing.Point(983, 135);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(47, 109);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 24;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::PazhDataCollect.Properties.Resources.SRC;
+            this.pictureBox1.Location = new System.Drawing.Point(984, 9);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(47, 109);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 23;
+            this.pictureBox1.TabStop = false;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(7, 130);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(974, 118);
+            this.dataGridView1.TabIndex = 2;
+            // 
+            // dgLocal
+            // 
+            this.dgLocal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgLocal.Location = new System.Drawing.Point(7, 3);
+            this.dgLocal.Name = "dgLocal";
+            this.dgLocal.Size = new System.Drawing.Size(974, 122);
+            this.dgLocal.TabIndex = 1;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label11);
+            this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Controls.Add(this.button9);
+            this.groupBox3.Controls.Add(this.button8);
+            this.groupBox3.Controls.Add(this.button7);
+            this.groupBox3.Controls.Add(this.button6);
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.maskedTextBox1);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Location = new System.Drawing.Point(3, 277);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(1025, 73);
+            this.groupBox3.TabIndex = 19;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "تنظیمات مربوط به سرویس ویندوز برداشت اطلاعات";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(141, 37);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(28, 16);
+            this.label11.TabIndex = 22;
+            this.label11.Text = "----";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(201, 37);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(99, 16);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "وضعیت سرویس:";
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(697, 30);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(106, 31);
+            this.button9.TabIndex = 20;
+            this.button9.Text = "ذخیره تنظیم";
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(324, 30);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(108, 31);
+            this.button8.TabIndex = 19;
+            this.button8.Text = "توقف سرویس";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(438, 30);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(124, 31);
+            this.button7.TabIndex = 18;
+            this.button7.Text = "راه اندازی سرویس";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(568, 30);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(106, 31);
+            this.button6.TabIndex = 17;
+            this.button6.Text = "نصب سرویس";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(809, 41);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(38, 16);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "دقیقه";
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(853, 38);
+            this.maskedTextBox1.Mask = "000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(46, 23);
+            this.maskedTextBox1.TabIndex = 1;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(905, 41);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(103, 16);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "فاصله برداشت ها";
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(525, 277);
+            this.button5.Location = new System.Drawing.Point(295, 356);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(500, 39);
             this.button5.TabIndex = 18;
@@ -372,160 +550,40 @@
             this.label7.TabIndex = 8;
             this.label7.Text = "آدرس سرور";
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.button9);
-            this.groupBox3.Controls.Add(this.button8);
-            this.groupBox3.Controls.Add(this.button7);
-            this.groupBox3.Controls.Add(this.button6);
-            this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.maskedTextBox1);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Location = new System.Drawing.Point(3, 323);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1025, 85);
-            this.groupBox3.TabIndex = 19;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "تنظیمات مربوط به سرویس ویندوز برداشت اطلاعات";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(905, 41);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(103, 16);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "فاصله برداشت ها";
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(853, 38);
-            this.maskedTextBox1.Mask = "000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(46, 23);
-            this.maskedTextBox1.TabIndex = 1;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(809, 41);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(38, 16);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "دقیقه";
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(568, 30);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(106, 39);
-            this.button6.TabIndex = 17;
-            this.button6.Text = "نصب سرویس";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(438, 30);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(124, 39);
-            this.button7.TabIndex = 18;
-            this.button7.Text = "راه اندازی سرویس";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(324, 30);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(108, 39);
-            this.button8.TabIndex = 19;
-            this.button8.Text = "توقف سرویس";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(697, 30);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(106, 39);
-            this.button9.TabIndex = 20;
-            this.button9.Text = "ذخیره تنظیم";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(201, 41);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(99, 16);
-            this.label10.TabIndex = 21;
-            this.label10.Text = "وضعیت سرویس:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(141, 41);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(28, 16);
-            this.label11.TabIndex = 22;
-            this.label11.Text = "----";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(7, 277);
+            this.button10.Location = new System.Drawing.Point(671, 91);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(512, 39);
-            this.button10.TabIndex = 20;
-            this.button10.Text = "تست سیستم و بررسی نگاشت";
+            this.button10.Size = new System.Drawing.Size(341, 35);
+            this.button10.TabIndex = 25;
+            this.button10.Text = "تهیه Query و نمایش داده ها برای ارسال";
             this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.button11);
-            this.panel6.Controls.Add(this.dgLocal);
-            this.panel6.Controls.Add(this.dgRemote);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Enabled = false;
-            this.panel6.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.panel6.Location = new System.Drawing.Point(0, 414);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1031, 221);
-            this.panel6.TabIndex = 21;
-            // 
-            // dgRemote
-            // 
-            this.dgRemote.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgRemote.Location = new System.Drawing.Point(525, 4);
-            this.dgRemote.Name = "dgRemote";
-            this.dgRemote.Size = new System.Drawing.Size(500, 173);
-            this.dgRemote.TabIndex = 0;
-            // 
-            // dgLocal
-            // 
-            this.dgLocal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgLocal.Location = new System.Drawing.Point(7, 4);
-            this.dgLocal.Name = "dgLocal";
-            this.dgLocal.Size = new System.Drawing.Size(512, 173);
-            this.dgLocal.TabIndex = 1;
+            this.button10.Click += new System.EventHandler(this.button10_Click_1);
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(428, 179);
+            this.button11.Location = new System.Drawing.Point(5, 91);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(187, 39);
-            this.button11.TabIndex = 20;
-            this.button11.Text = "انتقال اطلاعات به سرور مادر";
+            this.button11.Size = new System.Drawing.Size(327, 35);
+            this.button11.TabIndex = 26;
+            this.button11.Text = "انتقال اطلاعات بصورت دستی";
             this.button11.UseVisualStyleBackColor = true;
             this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
+            // lblCount
+            // 
+            this.lblCount.AutoSize = true;
+            this.lblCount.Location = new System.Drawing.Point(363, 100);
+            this.lblCount.Name = "lblCount";
+            this.lblCount.Size = new System.Drawing.Size(54, 16);
+            this.lblCount.TabIndex = 27;
+            this.lblCount.Text = "lblCount";
             // 
             // mainFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1031, 635);
+            this.ClientSize = new System.Drawing.Size(1031, 793);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -534,6 +592,15 @@
             this.Text = "برنامه برداشت اطلاعات پاژ";
             this.Load += new System.EventHandler(this.mainFrm_Load);
             this.panel1.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgLocal)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -544,11 +611,6 @@
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgRemote)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgLocal)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -595,9 +657,14 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.DataGridView dgLocal;
-        private System.Windows.Forms.DataGridView dgRemote;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.TextBox txtSQL;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Label lblCount;
     }
 }
 

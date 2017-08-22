@@ -150,5 +150,21 @@ namespace PazhDataCollect
             }
             return Cdate;
         }
+        public string FN_GetQueryString()
+        {
+            int DaysBefore = Properties.Settings.Default.DaysBefore;
+            string ShopName = Properties.Settings.Default.ShopName;
+            string ShopID = Properties.Settings.Default.ShopID;
+            string DateField = Properties.Settings.Default.DateField;
+
+            string Cdate = FN_FormatDate(DateTime.Now.AddDays(DaysBefore * -1), true, true);
+            string DBtable = Properties.Settings.Default.LocalDB;
+            string SQL = Properties.Settings.Default.LocalSQL;
+            SQL += ",N'" + ShopName + "' AS 'ShopName' , N'" + ShopID + "' AS 'ShopID' ";
+            SQL += " FROM " + DBtable;
+            SQL += " WHERE " + DateField + ">'" + Cdate + "'";
+            return SQL;
+
+        }
     }
 }

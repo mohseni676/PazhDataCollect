@@ -57,6 +57,10 @@
             this.txtLocalDB = new System.Windows.Forms.TextBox();
             this.txtRemoteDB = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtShopID = new System.Windows.Forms.TextBox();
+            this.txtShopName = new System.Windows.Forms.TextBox();
             this.gbRemote.SuspendLayout();
             this.gbLocal.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -231,7 +235,7 @@
             this.txtLocalSQL.Multiline = true;
             this.txtLocalSQL.Name = "txtLocalSQL";
             this.txtLocalSQL.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtLocalSQL.Size = new System.Drawing.Size(368, 194);
+            this.txtLocalSQL.Size = new System.Drawing.Size(368, 118);
             this.txtLocalSQL.TabIndex = 4;
             // 
             // button1
@@ -265,6 +269,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(222, 21);
             this.comboBox1.TabIndex = 11;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             this.comboBox1.Click += new System.EventHandler(this.comboBox1_Click);
             // 
             // label5
@@ -344,9 +349,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(969, 352);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 16);
+            this.label4.Size = new System.Drawing.Size(63, 16);
             this.label4.TabIndex = 8;
-            this.label4.Text = "دیتابیس مبدا";
+            this.label4.Text = "جدول مبدا";
             // 
             // txtLocalDB
             // 
@@ -367,15 +372,53 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(969, 322);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(88, 16);
+            this.label7.Size = new System.Drawing.Size(72, 16);
             this.label7.TabIndex = 19;
-            this.label7.Text = "دیتابیس مقصد";
+            this.label7.Text = "جدول مقصد";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(923, 281);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(134, 16);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "شناسه (پلاک)فروشگاه";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(969, 247);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(73, 16);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "نام فروشگاه";
+            // 
+            // txtShopID
+            // 
+            this.txtShopID.BackColor = System.Drawing.Color.Khaki;
+            this.txtShopID.Location = new System.Drawing.Point(755, 278);
+            this.txtShopID.Name = "txtShopID";
+            this.txtShopID.Size = new System.Drawing.Size(161, 23);
+            this.txtShopID.TabIndex = 23;
+            // 
+            // txtShopName
+            // 
+            this.txtShopName.BackColor = System.Drawing.Color.Khaki;
+            this.txtShopName.Location = new System.Drawing.Point(802, 244);
+            this.txtShopName.Name = "txtShopName";
+            this.txtShopName.Size = new System.Drawing.Size(161, 23);
+            this.txtShopName.TabIndex = 24;
             // 
             // DataSchemeFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1060, 741);
+            this.Controls.Add(this.txtShopName);
+            this.Controls.Add(this.txtShopID);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.txtRemoteDB);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtLocalDB);
@@ -442,5 +485,9 @@
         private System.Windows.Forms.TextBox txtLocalDB;
         private System.Windows.Forms.TextBox txtRemoteDB;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtShopID;
+        private System.Windows.Forms.TextBox txtShopName;
     }
 }
