@@ -18,6 +18,8 @@ namespace PazhDataCollect
         SqlConnection RemoteCN = new SqlConnection();
         SqlConnection LocalCN = new SqlConnection();
         Utility UT = new Utility();
+        DataTable RemoteTB, RemoteAddTB, LocalTB, LocalAddTB=new DataTable();
+        BindingSource RemoteBS, RemoteAddBC, LocalBC, LocalAddBC=null;
         public DataSchemeFrm()
         {
             InitializeComponent();
@@ -31,7 +33,7 @@ namespace PazhDataCollect
             cbLocal.Items.AddRange(UT.FN_GetDBTableList(LocalCN).ToArray());
             txtLocalSQL.Text = Properties.Settings.Default.LocalSQL;
            // txtRemoteSQL.Text = Properties.Settings.Default.RemoteSQL;
-            comboBox1.Text = Properties.Settings.Default.DateField;
+            cbDateField.Text = Properties.Settings.Default.DateField;
             txtLocalDB.Text = Properties.Settings.Default.LocalDB;
             txtRemoteDB.Text = Properties.Settings.Default.RemoteDB;
             txtShopName.Text = Properties.Settings.Default.ShopName;
@@ -65,10 +67,11 @@ namespace PazhDataCollect
             //MessageBox.Show("select COLUMN_NAME,TABLE_NAME from INFORMATION_SCHEMA.COLUMNS where  TABLE_NAME=\"" + "TEST" + "\"");
             if (cbRemote.Text != "" && RemoteCN.ConnectionString !="")
             {
-                lbRemote.Items.Clear();
-                var list = UT.FN_GetTbColumnList(RemoteCN, cbRemote.Text).ToArray();
-                lbRemote.Items.AddRange(list);
-                radGridView1.DataSource = list;
+                RemoteTB = UT.FN_GetTbColumnList(RemoteCN, cbRemote.Text);
+                MessageBox.Show(RemoteTB.Rows.Count.ToString());
+                dgRemote.DataSource = RemoteTB;
+                //RemoteBS.DataSource = RemoteTB;
+                
             }
             else
             {
@@ -81,8 +84,6 @@ namespace PazhDataCollect
             LocalCN.ConnectionString = Properties.Settings.Default.LocalCN;
             if (cbLocal.Text != "" && LocalCN.ConnectionString != "")
             {
-                lbLocal.Items.Clear();
-                lbLocal.Items.AddRange(UT.FN_GetTbColumnList(LocalCN, cbLocal.Text).ToArray());
             }
             else
             {
@@ -103,8 +104,6 @@ namespace PazhDataCollect
         private void lbRemote_DoubleClick(object sender, EventArgs e)
         {
           //  txtResualt.Text += lbRemote.SelectedItem.ToString() + " = ";
-            lbRemoteAdded.Items.Add(lbRemote.SelectedItem);
-            lbRemote.Items.Remove(lbRemote.SelectedItem);
             
             
         }
@@ -112,8 +111,6 @@ namespace PazhDataCollect
         private void lbLocal_DoubleClick(object sender, EventArgs e)
         {
            // txtResualt.Text += lbLocal.SelectedItem.ToString() + " , ";
-            lbLocalAdded.Items.Add(lbLocal.SelectedItem);
-            lbLocal.Items.Remove(lbLocal.SelectedItem);
         }
 
         private void lbRemoteAdded_SelectedIndexChanged(object sender, EventArgs e)
@@ -123,65 +120,22 @@ namespace PazhDataCollect
 
         private void lbRemoteAdded_DoubleClick(object sender, EventArgs e)
         {
-            lbRemote.Items.Add(lbRemoteAdded.SelectedItem);
-            lbRemoteAdded.Items.Remove(lbRemoteAdded.SelectedItem);
-
         }
 
         private void lbLocalAdded_DoubleClick(object sender, EventArgs e)
         {
-            lbLocal.Items.Add(lbLocalAdded.SelectedItem);
-            lbLocalAdded.Items.Remove(lbLocalAdded.SelectedItem);
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (lbLocalAdded.Items.Count != lbRemoteAdded.Items.Count)
-                MessageBox.Show("تعداد فیلدهای انتخابی در جدول محلی و جدول راه دور باید یکسان باشد");
-            else
-            {
-                string txt = "";
-                txt += "SELECT ";
-                //int i = lbRemote.Items.Count;
-                for (int i = 0; i < lbRemoteAdded.Items.Count; i++)
-                {
-                    if(i< lbRemoteAdded.Items.Count-1)
-                    txt += lbLocalAdded.Items[i] + " AS '" + lbRemoteAdded.Items[i] + "' , ";
-                    else
-                    txt += lbLocalAdded.Items[i] + " AS '" + lbRemoteAdded.Items[i] + "' ";
-
-
-                }
-                //txt += cbLocal.Text;
-                txtLocalSQL.Text = txt;
-                txtLocalDB.Text = cbLocal.Text;
-                txtRemoteDB.Text = cbRemote.Text;
-               
-              /*  txt = "";
-                txt += "SELECT ";
-                //int i = lbRemote.Items.Count;
-                for (int i = 0; i < lbRemoteAdded.Items.Count; i++)
-                {
-                    if (i < lbRemoteAdded.Items.Count - 1)
-                        txt += lbRemoteAdded.Items[i] +" , ";
-                    else
-                        txt += lbRemoteAdded.Items[i] + " From ";
-
-
-                }
-                txt += cbRemote.Text;
-                txtRemoteSQL.Text = txt;*/
-
-
-            }
+          
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.LocalSQL = txtLocalSQL.Text;
             //Properties.Settings.Default.RemoteSQL = txtRemoteSQL.Text;
-            Properties.Settings.Default.DateField = comboBox1.Text;
+            Properties.Settings.Default.DateField = cbDateField.Text;
             Properties.Settings.Default.LocalDB = txtLocalDB.Text;
             Properties.Settings.Default.RemoteDB = txtRemoteDB.Text;
             if (chbDate.CheckState==CheckState.Checked)
@@ -201,10 +155,7 @@ namespace PazhDataCollect
 
         private void comboBox1_Click(object sender, EventArgs e)
         {
-            foreach(string item in lbLocalAdded.Items)
-            {
-                comboBox1.Items.Add(item);
-            }
+           
         }
 
         private void button3_Click(object sender, EventArgs e)

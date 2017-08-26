@@ -104,29 +104,23 @@ namespace PazhDataCollect
             }
         }
 
-        public List<Tuple< string,string,int>> FN_GetTbColumnList(SqlConnection CN,String TbName)
+        public DataTable FN_GetTbColumnList(SqlConnection CN,String TbName)
         {
-            List<Tuple<string, string,int>> TbList = new List<Tuple<string, string,int>>();
+            DataTable TbList = new DataTable();
             using (CN)
             {
                 try
                 {
-                    SqlCommand CMD = new SqlCommand("exec sp_columns " + TbName , CN);
-                    
                     CN.Open();
-                    SqlDataReader Reader = CMD.ExecuteReader();
-                    if (Reader.HasRows)
+                    using (SqlDataAdapter DA = new SqlDataAdapter("select t1.name AS FieldName,t1.max_length AS FieldLen,t3.name as FieldType from sys.all_columns t1 inner join sys.all_objects t2 on t1.object_id=t2.object_id inner join sys.types t3 on t1.system_type_id= t3.system_type_id where t2.type_desc='USER_TABLE' and t3.name<>'sysname' and t2.name='" + TbName+"'", CN))
                     {
-                        while (Reader.Read())
-                        {
+                        DA.Fill(TbList);
 
-                            TbList.Add(new Tuple<string, string,int>( Reader.GetString(3), Reader.GetString(5),Reader.GetInt32(7)));
-
-                        }
                     }
                     return TbList;
-                    CN.Close();
-                }catch (Exception er)
+                    
+                }
+                catch (Exception er)
                 {
                    throw (er);
                 }

@@ -28,17 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             this.gbRemote = new System.Windows.Forms.GroupBox();
-            this.lbRemoteAdded = new System.Windows.Forms.ListBox();
-            this.lbRemote = new System.Windows.Forms.ListBox();
+            this.dgRemoteAdd = new System.Windows.Forms.DataGridView();
+            this.dgRemote = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.BtnRemote = new System.Windows.Forms.Button();
             this.cbRemote = new System.Windows.Forms.ComboBox();
             this.gbLocal = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.lbLocalAdded = new System.Windows.Forms.ListBox();
-            this.lbLocal = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnLocal = new System.Windows.Forms.Button();
             this.cbLocal = new System.Windows.Forms.ComboBox();
@@ -46,7 +43,7 @@
             this.txtLocalSQL = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbDateField = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.chbDate = new System.Windows.Forms.CheckBox();
             this.chbFormatDate = new System.Windows.Forms.CheckBox();
@@ -62,22 +59,22 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtShopID = new System.Windows.Forms.TextBox();
             this.txtShopName = new System.Windows.Forms.TextBox();
-            this.radGridView1 = new Telerik.WinControls.UI.RadGridView();
             this.gbRemote.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgRemoteAdd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgRemote)).BeginInit();
             this.gbLocal.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgSQLView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radGridView1.MasterTemplate)).BeginInit();
             this.SuspendLayout();
             // 
             // gbRemote
             // 
-            this.gbRemote.Controls.Add(this.lbRemoteAdded);
-            this.gbRemote.Controls.Add(this.lbRemote);
+            this.gbRemote.Controls.Add(this.dgRemoteAdd);
+            this.gbRemote.Controls.Add(this.dgRemote);
             this.gbRemote.Controls.Add(this.label2);
             this.gbRemote.Controls.Add(this.BtnRemote);
             this.gbRemote.Controls.Add(this.cbRemote);
+            this.gbRemote.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.gbRemote.Location = new System.Drawing.Point(346, 17);
             this.gbRemote.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gbRemote.Name = "gbRemote";
@@ -87,37 +84,37 @@
             this.gbRemote.TabStop = false;
             this.gbRemote.Text = "سرور ریموت(مادر)";
             // 
-            // lbRemoteAdded
+            // dgRemoteAdd
             // 
-            this.lbRemoteAdded.FormattingEnabled = true;
-            this.lbRemoteAdded.ItemHeight = 16;
-            this.lbRemoteAdded.Location = new System.Drawing.Point(17, 305);
-            this.lbRemoteAdded.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lbRemoteAdded.Name = "lbRemoteAdded";
-            this.lbRemoteAdded.Size = new System.Drawing.Size(294, 196);
-            this.lbRemoteAdded.TabIndex = 6;
-            this.lbRemoteAdded.SelectedIndexChanged += new System.EventHandler(this.lbRemoteAdded_SelectedIndexChanged);
-            this.lbRemoteAdded.DoubleClick += new System.EventHandler(this.lbRemoteAdded_DoubleClick);
+            this.dgRemoteAdd.AllowUserToOrderColumns = true;
+            this.dgRemoteAdd.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.dgRemoteAdd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgRemoteAdd.Location = new System.Drawing.Point(6, 306);
+            this.dgRemoteAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgRemoteAdd.Name = "dgRemoteAdd";
+            this.dgRemoteAdd.Size = new System.Drawing.Size(315, 204);
+            this.dgRemoteAdd.TabIndex = 4;
             // 
-            // lbRemote
+            // dgRemote
             // 
-            this.lbRemote.FormattingEnabled = true;
-            this.lbRemote.ItemHeight = 16;
-            this.lbRemote.Location = new System.Drawing.Point(17, 103);
-            this.lbRemote.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lbRemote.Name = "lbRemote";
-            this.lbRemote.Size = new System.Drawing.Size(294, 196);
-            this.lbRemote.TabIndex = 5;
-            this.lbRemote.Click += new System.EventHandler(this.lbRemote_Click);
-            this.lbRemote.SelectedIndexChanged += new System.EventHandler(this.lbRemote_SelectedIndexChanged);
-            this.lbRemote.DoubleClick += new System.EventHandler(this.lbRemote_DoubleClick);
+            this.dgRemote.AllowUserToAddRows = false;
+            this.dgRemote.AllowUserToOrderColumns = true;
+            this.dgRemote.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.dgRemote.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgRemote.Location = new System.Drawing.Point(6, 101);
+            this.dgRemote.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgRemote.Name = "dgRemote";
+            this.dgRemote.ReadOnly = true;
+            this.dgRemote.ShowEditingIcon = false;
+            this.dgRemote.Size = new System.Drawing.Size(315, 204);
+            this.dgRemote.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(245, 34);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 16);
+            this.label2.Size = new System.Drawing.Size(67, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "لیست جداول";
             // 
@@ -145,8 +142,6 @@
             // gbLocal
             // 
             this.gbLocal.Controls.Add(this.button3);
-            this.gbLocal.Controls.Add(this.lbLocalAdded);
-            this.gbLocal.Controls.Add(this.lbLocal);
             this.gbLocal.Controls.Add(this.label3);
             this.gbLocal.Controls.Add(this.btnLocal);
             this.gbLocal.Controls.Add(this.cbLocal);
@@ -169,29 +164,6 @@
             this.button3.Size = new System.Drawing.Size(42, 38);
             this.button3.TabIndex = 11;
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // lbLocalAdded
-            // 
-            this.lbLocalAdded.FormattingEnabled = true;
-            this.lbLocalAdded.ItemHeight = 16;
-            this.lbLocalAdded.Location = new System.Drawing.Point(6, 305);
-            this.lbLocalAdded.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lbLocalAdded.Name = "lbLocalAdded";
-            this.lbLocalAdded.Size = new System.Drawing.Size(294, 196);
-            this.lbLocalAdded.TabIndex = 10;
-            this.lbLocalAdded.DoubleClick += new System.EventHandler(this.lbLocalAdded_DoubleClick);
-            // 
-            // lbLocal
-            // 
-            this.lbLocal.FormattingEnabled = true;
-            this.lbLocal.ItemHeight = 16;
-            this.lbLocal.Location = new System.Drawing.Point(6, 103);
-            this.lbLocal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lbLocal.Name = "lbLocal";
-            this.lbLocal.Size = new System.Drawing.Size(294, 196);
-            this.lbLocal.TabIndex = 9;
-            this.lbLocal.DoubleClick += new System.EventHandler(this.lbLocal_DoubleClick);
             // 
             // label3
             // 
@@ -264,17 +236,17 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // comboBox1
+            // cbDateField
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(755, 383);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(222, 21);
-            this.comboBox1.TabIndex = 11;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            this.comboBox1.Click += new System.EventHandler(this.comboBox1_Click);
+            this.cbDateField.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.cbDateField.FormattingEnabled = true;
+            this.cbDateField.Location = new System.Drawing.Point(755, 383);
+            this.cbDateField.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbDateField.Name = "cbDateField";
+            this.cbDateField.Size = new System.Drawing.Size(222, 21);
+            this.cbDateField.TabIndex = 11;
+            this.cbDateField.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cbDateField.Click += new System.EventHandler(this.comboBox1_Click);
             // 
             // label5
             // 
@@ -414,24 +386,11 @@
             this.txtShopName.Size = new System.Drawing.Size(161, 23);
             this.txtShopName.TabIndex = 24;
             // 
-            // radGridView1
-            // 
-            this.radGridView1.Location = new System.Drawing.Point(1054, 51);
-            // 
-            // 
-            // 
-            this.radGridView1.MasterTemplate.ViewDefinition = tableViewDefinition1;
-            this.radGridView1.Name = "radGridView1";
-            this.radGridView1.Size = new System.Drawing.Size(178, 150);
-            this.radGridView1.TabIndex = 25;
-            this.radGridView1.Text = "radGridView1";
-            // 
             // DataSchemeFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1237, 733);
-            this.Controls.Add(this.radGridView1);
+            this.ClientSize = new System.Drawing.Size(1071, 733);
             this.Controls.Add(this.txtShopName);
             this.Controls.Add(this.txtShopID);
             this.Controls.Add(this.label9);
@@ -445,7 +404,7 @@
             this.Controls.Add(this.chbFormatDate);
             this.Controls.Add(this.chbDate);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbDateField);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button1);
@@ -462,12 +421,12 @@
             this.Load += new System.EventHandler(this.DataSchemeFrm_Load);
             this.gbRemote.ResumeLayout(false);
             this.gbRemote.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgRemoteAdd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgRemote)).EndInit();
             this.gbLocal.ResumeLayout(false);
             this.gbLocal.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgSQLView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radGridView1.MasterTemplate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -476,22 +435,18 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gbRemote;
-        private System.Windows.Forms.ListBox lbRemote;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button BtnRemote;
         private System.Windows.Forms.ComboBox cbRemote;
         private System.Windows.Forms.GroupBox gbLocal;
-        private System.Windows.Forms.ListBox lbLocal;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnLocal;
         private System.Windows.Forms.ComboBox cbLocal;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtLocalSQL;
-        private System.Windows.Forms.ListBox lbRemoteAdded;
-        private System.Windows.Forms.ListBox lbLocalAdded;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbDateField;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox chbDate;
         private System.Windows.Forms.CheckBox chbFormatDate;
@@ -508,6 +463,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtShopID;
         private System.Windows.Forms.TextBox txtShopName;
-        private Telerik.WinControls.UI.RadGridView radGridView1;
+        private System.Windows.Forms.DataGridView dgRemote;
+        private System.Windows.Forms.DataGridView dgRemoteAdd;
     }
 }
