@@ -30,6 +30,9 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.lblCount = new System.Windows.Forms.Label();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
             this.txtSQL = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -73,9 +76,6 @@
             this.txtLPassword = new System.Windows.Forms.MaskedTextBox();
             this.txtLServer = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.lblCount = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -103,7 +103,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1031, 793);
+            this.panel1.Size = new System.Drawing.Size(1031, 733);
             this.panel1.TabIndex = 0;
             // 
             // panel7
@@ -116,6 +116,35 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(1018, 132);
             this.panel7.TabIndex = 22;
+            // 
+            // lblCount
+            // 
+            this.lblCount.AutoSize = true;
+            this.lblCount.Location = new System.Drawing.Point(363, 100);
+            this.lblCount.Name = "lblCount";
+            this.lblCount.Size = new System.Drawing.Size(54, 16);
+            this.lblCount.TabIndex = 27;
+            this.lblCount.Text = "lblCount";
+            // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(5, 91);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(327, 35);
+            this.button11.TabIndex = 26;
+            this.button11.Text = "انتقال اطلاعات بصورت دستی";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(671, 91);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(341, 35);
+            this.button10.TabIndex = 25;
+            this.button10.Text = "تهیه Query و نمایش داده ها برای ارسال";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click_1);
             // 
             // txtSQL
             // 
@@ -136,7 +165,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel6.Enabled = false;
             this.panel6.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.panel6.Location = new System.Drawing.Point(0, 540);
+            this.panel6.Location = new System.Drawing.Point(0, 480);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1031, 253);
             this.panel6.TabIndex = 21;
@@ -249,6 +278,7 @@
             this.button6.TabIndex = 17;
             this.button6.Text = "نصب سرویس";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // label9
             // 
@@ -550,40 +580,11 @@
             this.label7.TabIndex = 8;
             this.label7.Text = "آدرس سرور";
             // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(671, 91);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(341, 35);
-            this.button10.TabIndex = 25;
-            this.button10.Text = "تهیه Query و نمایش داده ها برای ارسال";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click_1);
-            // 
-            // button11
-            // 
-            this.button11.Location = new System.Drawing.Point(5, 91);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(327, 35);
-            this.button11.TabIndex = 26;
-            this.button11.Text = "انتقال اطلاعات بصورت دستی";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
-            // 
-            // lblCount
-            // 
-            this.lblCount.AutoSize = true;
-            this.lblCount.Location = new System.Drawing.Point(363, 100);
-            this.lblCount.Name = "lblCount";
-            this.lblCount.Size = new System.Drawing.Size(54, 16);
-            this.lblCount.TabIndex = 27;
-            this.lblCount.Text = "lblCount";
-            // 
             // mainFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1031, 793);
+            this.ClientSize = new System.Drawing.Size(1031, 733);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);

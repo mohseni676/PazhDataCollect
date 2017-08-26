@@ -183,5 +183,10 @@ namespace PazhDataCollect
             lblCount.Text = e.RowsCopied.ToString();
         }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+           
+            
+        }
     }
 }
