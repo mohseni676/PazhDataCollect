@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainFrm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.lblCount = new System.Windows.Forms.Label();
@@ -76,6 +78,10 @@
             this.txtLPassword = new System.Windows.Forms.MaskedTextBox();
             this.txtLServer = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.MainMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.Restore = new System.Windows.Forms.ToolStripMenuItem();
+            this.Exit = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -90,6 +96,7 @@
             this.groupBox1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.MainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -580,6 +587,34 @@
             this.label7.TabIndex = 8;
             this.label7.Text = "آدرس سرور";
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "برنامه ارسال اطلاعات پاژ";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            // 
+            // MainMenu
+            // 
+            this.MainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Restore,
+            this.Exit});
+            this.MainMenu.Name = "MainMenu";
+            this.MainMenu.Size = new System.Drawing.Size(113, 48);
+            this.MainMenu.Text = "منو اصلی";
+            // 
+            // Restore
+            // 
+            this.Restore.Name = "Restore";
+            this.Restore.Size = new System.Drawing.Size(112, 22);
+            this.Restore.Text = "بازگشت";
+            // 
+            // Exit
+            // 
+            this.Exit.Name = "Exit";
+            this.Exit.Size = new System.Drawing.Size(112, 22);
+            this.Exit.Text = "خروج";
+            // 
             // mainFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -592,6 +627,7 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Text = "برنامه برداشت اطلاعات پاژ";
             this.Load += new System.EventHandler(this.mainFrm_Load);
+            this.Resize += new System.EventHandler(this.mainFrm_Resize);
             this.panel1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
@@ -612,6 +648,7 @@
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.MainMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -666,6 +703,10 @@
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Label lblCount;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.ContextMenuStrip MainMenu;
+        private System.Windows.Forms.ToolStripMenuItem Restore;
+        private System.Windows.Forms.ToolStripMenuItem Exit;
     }
 }
 

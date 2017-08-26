@@ -185,8 +185,23 @@ namespace PazhDataCollect
 
         private void button6_Click(object sender, EventArgs e)
         {
-           
             
+            
+            
+        }
+
+        private void mainFrm_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+                this.Hide();
+            else
+                this.Show();
+        }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
         }
     }
 }

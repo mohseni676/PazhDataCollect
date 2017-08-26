@@ -68,6 +68,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility.cs" />
+    <Compile Include="XML.cs" />
     <EmbeddedResource Include="DataSchemeFrm.resx">
       <DependentUpon>DataSchemeFrm.cs</DependentUpon>
     </EmbeddedResource>
