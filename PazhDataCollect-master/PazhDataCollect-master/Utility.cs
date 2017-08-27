@@ -104,23 +104,29 @@ namespace PazhDataCollect
             }
         }
 
-        public DataTable FN_GetTbColumnList(SqlConnection CN,String TbName)
+        public List<string> FN_GetTbColumnList(SqlConnection CN,String TbName)
         {
-            DataTable TbList = new DataTable();
+            List<string> TbList = new List<string>();
             using (CN)
             {
                 try
                 {
+                    SqlCommand CMD = new SqlCommand("exec sp_columns " + TbName , CN);
+                    
                     CN.Open();
-                    using (SqlDataAdapter DA = new SqlDataAdapter("select * from (select t2.name AS TBName,t1.name AS FieldName,t1.max_length AS FieldLen,t3.name as FieldType from sys.all_columns t1 inner join sys.all_objects t2 on t1.object_id=t2.object_id inner join sys.types t3 on t1.system_type_id= t3.system_type_id where (t2.object_id>0 and  t2.type_desc='USER_TABLE'  and t3.name<>'sysname' ) OR (t2.object_id>0 and  t2.type_desc='VIEW'  and t3.name<>'sysname')) tt where tt.tbname = '" + TbName+"'", CN))
+                    SqlDataReader Reader = CMD.ExecuteReader();
+                    if (Reader.HasRows)
                     {
-                        DA.Fill(TbList);
+                        while (Reader.Read())
+                        {
 
+                            TbList.Add(Reader.GetString(3));
+
+                        }
                     }
                     return TbList;
-                    
-                }
-                catch (Exception er)
+                    CN.Close();
+                }catch (Exception er)
                 {
                    throw (er);
                 }
@@ -143,22 +149,6 @@ namespace PazhDataCollect
                 Cdate = Cdate.Remove(0, 2);
             }
             return Cdate;
-        }
-        public string FN_GetQueryString()
-        {
-            int DaysBefore = Properties.Settings.Default.DaysBefore;
-            string ShopName = Properties.Settings.Default.ShopName;
-            string ShopID = Properties.Settings.Default.ShopID;
-            string DateField = Properties.Settings.Default.DateField;
-
-            string Cdate = FN_FormatDate(DateTime.Now.AddDays(DaysBefore * -1), true, true);
-            string DBtable = Properties.Settings.Default.LocalDB;
-            string SQL = Properties.Settings.Default.LocalSQL;
-            SQL += ",N'" + ShopName + "' AS 'ShopName' , N'" + ShopID + "' AS 'ShopID' ";
-            SQL += " FROM " + DBtable;
-            SQL += " WHERE " + DateField + ">'" + Cdate + "'";
-            return SQL;
-
         }
     }
 }

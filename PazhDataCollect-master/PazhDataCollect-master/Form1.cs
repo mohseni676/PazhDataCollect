@@ -14,7 +14,6 @@ namespace PazhDataCollect
 {
     public partial class mainFrm : Form
     {
-        DataTable TB = new DataTable();
         Utility UT = new Utility();
         SqlConnectionStringBuilder RemoteCN = new SqlConnectionStringBuilder();
         SqlConnectionStringBuilder LocalCN = new SqlConnectionStringBuilder();
@@ -22,18 +21,18 @@ namespace PazhDataCollect
         {
             InitializeComponent();
         }
-
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
             try
             {
-                if (UT.CheckServerAvailablity(txtRserver.Text.Trim()) == true)
+                if (UT.CheckServerAvailablity(txtRserver.Text.Trim())==true)
                 {
                     //MessageBox.Show("ارتباط با سرور بر قرار است.");
                     cbDBList.Items.Clear();
                     List<string> DBs = new List<string>();
-                    DBs = UT.FN_GetDBList(txtRserver.Text.Trim(), txtDBUser.Text.Trim(), txtDBPassword.Text);
+                    DBs = UT.FN_GetDBList(txtRserver.Text.Trim(),  txtDBUser.Text.Trim(), txtDBPassword.Text);
                     cbDBList.Items.AddRange(DBs.ToArray());
                     MessageBox.Show("بانک اطلاعاتی مد نظر را از لیست انتخاب نمایید.");
                     panel3.Enabled = true;
@@ -57,7 +56,7 @@ namespace PazhDataCollect
             cn.UserID = txtDBUser.Text.Trim();
             cn.Password = txtDBPassword.Text;
             cn.InitialCatalog = cbDBList.Text.Trim();
-
+            
             Properties.Settings.Default.RemoteCN = cn.ConnectionString.ToString();
             Properties.Settings.Default.Save();
             MessageBox.Show("تنظیمات مربوط به سرور راه دور ذخیره شد.");
@@ -65,7 +64,7 @@ namespace PazhDataCollect
 
         private void mainFrm_Load(object sender, EventArgs e)
         {
-
+            
             if (Properties.Settings.Default.RemoteCN != "")
             {
                 RemoteCN.ConnectionString = Properties.Settings.Default.RemoteCN;
@@ -132,23 +131,30 @@ namespace PazhDataCollect
 
         private void button10_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void button10_Click_1(object sender, EventArgs e)
-        {
             panel6.Enabled = true;
             using (SqlConnection LCN = new SqlConnection(Properties.Settings.Default.LocalCN))
             {
                 LCN.Open();
-                txtSQL.Text = UT.FN_GetQueryString();
-
-
-                using (SqlDataAdapter DT = new SqlDataAdapter(txtSQL.Text, LCN))
+                int DaysBefore = Properties.Settings.Default.DaysBefore;
+                string ShopName = Properties.Settings.Default.ShopName;
+                string ShopID = Properties.Settings.Default.ShopID;
+                string DateField = Properties.Settings.Default.DateField;
+                string Cdate = UT.FN_FormatDate(DateTime.Now.AddDays(DaysBefore * -1), true, true);
+                using (SqlDataAdapter DT = new SqlDataAdapter(Properties.Settings.Default.LocalSQL + " Where " + DateField + ">'" + Cdate + "'", LCN))
                 {
-
+                    DataTable TB = new DataTable();
                     DT.Fill(TB);
                     dgLocal.DataSource = TB;
+                }
+            }
+            using (SqlConnection LCN = new SqlConnection(Properties.Settings.Default.RemoteCN))
+            {
+                LCN.Open();
+                using (SqlDataAdapter DT = new SqlDataAdapter(Properties.Settings.Default.RemoteSQL, LCN))
+                {
+                    DataTable TB = new DataTable();
+                    DT.Fill(TB);
+                    dgRemote.DataSource = TB;
                 }
             }
 
@@ -156,52 +162,51 @@ namespace PazhDataCollect
 
         private void button11_Click(object sender, EventArgs e)
         {
+            DataSet ds = new DataSet();
+            DataTable TBLocal = new DataTable();
+            DataTable TBRemote = new DataTable();
+            
+            using (SqlConnection LCN = new SqlConnection(Properties.Settings.Default.LocalCN))
+            {
+                LCN.Open();
+                int DaysBefore = Properties.Settings.Default.DaysBefore;
+                string ShopName = Properties.Settings.Default.ShopName;
+                string ShopID = Properties.Settings.Default.ShopID;
+                string DateField = Properties.Settings.Default.DateField;
+                string Cdate = UT.FN_FormatDate(DateTime.Now.AddDays(DaysBefore * -1), true, true);
+                
+
+                using (SqlDataAdapter DT = new SqlDataAdapter(Properties.Settings.Default.LocalSQL + " Where " + DateField + ">'" + Cdate + "'", LCN))
+                {
+                    
+                    DT.Fill(ds);
+                   
+
+                }
+            }
             using (SqlConnection LCN = new SqlConnection(Properties.Settings.Default.RemoteCN))
             {
                 LCN.Open();
-                    using (SqlBulkCopy Copy = new SqlBulkCopy(LCN))
+                using (SqlDataAdapter DT = new SqlDataAdapter(Properties.Settings.Default.RemoteSQL, LCN))
                 {
-                    Copy.DestinationTableName = Properties.Settings.Default.RemoteDB;
-                    Copy.SqlRowsCopied +=
-                    new SqlRowsCopiedEventHandler(OnSqlRowsCopied);
-                    Copy.NotifyAfter = 10;
-                    try
-                    {
-                        Copy.WriteToServer(TB);
-                    }
-                    catch (Exception er)
-                    {
-                        MessageBox.Show("خطا در کپی :" + er.Message);
-                    }
                     
+                    DT.Fill(TBRemote);
+                 
                 }
             }
-        }
-
-        private void OnSqlRowsCopied(object sender, SqlRowsCopiedEventArgs e)
-        {
-            lblCount.Text = e.RowsCopied.ToString();
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            
-            
+            TBLocal = ds.Tables[0];
+            //var query =from u in TBLocal.AsEnumera;
+            BindingSource bc = new BindingSource();
+            bc.DataSource = TBLocal;
+            dgRemote.DataSource = bc;
             
         }
 
-        private void mainFrm_Resize(object sender, EventArgs e)
+        private void button9_Click(object sender, EventArgs e)
         {
-            if (this.WindowState == FormWindowState.Minimized)
-                this.Hide();
-            else
-                this.Show();
-        }
-
-        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            this.Show();
-            this.WindowState = FormWindowState.Normal;
+            //MessageBox.Show(UT.FN_FormatDate(DateTime.Now, false, true));
         }
     }
+
+
 }
