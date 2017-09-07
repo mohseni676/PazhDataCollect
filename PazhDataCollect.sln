@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PazhDataCollect", "PazhDataCollect\PazhDataCollect.csproj", "{7687C0E1-265B-4B6D-9CBF-44088E53F362}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PazhDataCollectorService", "..\PazhDataCollectorService\PazhDataCollectorService\PazhDataCollectorService.csproj", "{C6D7ED9D-71EC-465E-930D-76F5FCB8D6EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{7687C0E1-265B-4B6D-9CBF-44088E53F362}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7687C0E1-265B-4B6D-9CBF-44088E53F362}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7687C0E1-265B-4B6D-9CBF-44088E53F362}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6D7ED9D-71EC-465E-930D-76F5FCB8D6EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6D7ED9D-71EC-465E-930D-76F5FCB8D6EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6D7ED9D-71EC-465E-930D-76F5FCB8D6EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6D7ED9D-71EC-465E-930D-76F5FCB8D6EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
